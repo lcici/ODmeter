@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 #------------------------------------------------------------------------------
 #                 PyuEye example - gui application modul
@@ -33,14 +33,11 @@
 from PyQt5 import QtCore
 from PyQt5 import QtGui
 from PyQt5 import QtWidgets
-
 #from PyQt5.QtWidgets import QGraphicsScene, QApplication
 #from PyQt5.QtWidgets import QGraphicsView
 #from PyQt5.QtWidgets import QHBoxLayout, QVBoxLayout, QSlider, QWidget
 
 from pyueye import ueye
-def WIDTH 1000
-def HEIGHT 800
 
 
 def get_qt_format(ueye_color_format):
