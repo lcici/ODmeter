@@ -152,6 +152,7 @@ class FrameThread(Thread):
                                            self.timeout,
                                            img_buffer.mem_ptr,
                                            img_buffer.mem_id)
+
             if ret == ueye.IS_SUCCESS:
                 self.notify(ImageData(self.cam.handle(), img_buffer))
 

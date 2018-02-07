@@ -13,12 +13,14 @@ from pyueye import ueye
 from pyueye_example_utils import (uEyeException, Rect, get_bits_per_pixel,
                                   ImageBuffer, check)
 
+
 #global variant
-TriggerMode = 2
+#TriggerMode = 2
 
 class Camera:
     def __init__(self, device_id=0):
         self.h_cam = ueye.HIDS(device_id)
+        self.h_wnd = ueye.HWND()
         self.img_buffers = []
 
         # indicator for live mode
@@ -56,17 +58,21 @@ class Camera:
         ueye.is_InitImageQueue(self.h_cam, 0)
 
     def init(self):
-        ret = ueye.is_InitCamera(self.h_cam, None)
+        ret = ueye.is_InitCamera(self.h_cam, self.h_wnd)
         if ret != ueye.IS_SUCCESS:
             self.h_cam = None
             raise uEyeException(ret)
 
+        self.enable_message(self.h_wnd)
         return ret
 
     def exit(self):
         ret = None
         if self.h_cam is not None:
             ret = ueye.is_ExitCamera(self.h_cam)
+
+            #disable message by using None at the window
+            self.enable_message(None)
         if ret == ueye.IS_SUCCESS:
             self.h_cam = None
 
@@ -118,7 +124,7 @@ class Camera:
                                   format_list, ueye.sizeof(format_list)))
         return format_list
 
-    def set_trigger_mode(self):
+    def set_trigger_mode(self, TriggerMode):
         # Trigger off
         if TriggerMode == 0:
             ueye.is_SetExternalTrigger(self.h_cam, ueye.IS_SET_TRIGGER_OFF)
@@ -132,16 +138,24 @@ class Camera:
         elif TriggerMode == 3:
             ueye.is_SetExternalTrigger(self.h_cam, ueye.IS_SET_TRIGGER_LO_HI)
 
-    def trigger_on(self):
+    def trigger_on(self, TriggerMode):
         # if live mode is on, stop the camera immediately
-        if self.live_on == True:
+        if self.live_on is True:
             self.stop_video()
-            print('turn off')
 
-        self.set_trigger_mode()
+        # set the trigger and wait for the image
+        self.set_trigger_mode(TriggerMode)
+        # set the camera back to live mode
 
-        if self.live_on == True:
-            self.capture_video()
+        self.capture_video()
+
+    def enable_message(self, hwnd):
+        ueye.is_EnableMessage(self.h_cam, ueye.IS_DEVICE_REMOVED, hwnd)
+
+        ueye.is_EnableMessage(self.h_cam, ueye.IS_FRAME, hwnd)
+
+        return ueye.is_EnableMessage(self.h_cam, ueye.IS_TRIGGER, hwnd)
+
 
 
 

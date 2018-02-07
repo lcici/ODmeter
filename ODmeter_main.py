@@ -9,7 +9,7 @@ import sys
 
 from ODmeter_camera import Camera
 from pyueye_example_utils import FrameThread
-from ODmeter_gui import PyuEyeQtApp, PyuEyeQtView
+from ODmeter_gui import ODMeterApp, ODMeterWindow
 from PyQt5 import QtGui
 
 from pyueye import ueye
@@ -37,6 +37,7 @@ def process_image(self, image_data):
             # corresponding to the center of the circle
             cv2.circle(image, (x, y), r, (0, 255, 0), 6)
 
+    print(image_data)
     # show the image with Qt
     return QtGui.QImage(image.data,
                         image_data.mem_info.width,
@@ -46,31 +47,24 @@ def process_image(self, image_data):
 def main():
 
     # we need a QApplication, that runs our QT Gui Framework
-    app = PyuEyeQtApp()
+    app = ODMeterApp()
 
-    # a basic qt window
-    view = PyuEyeQtView()
+    # init camera in the GUI window
+    view = ODMeterWindow()
     view.show()
     view.user_callback = process_image
 
-    # camera class to simplify uEye API access
-    cam = Camera()
-    cam.init()
-    cam.set_colormode(ueye.IS_CM_BGR8_PACKED)
 
-    #get Image size and position from GUI setting
-    #width, height, x, y = view.image_size_position()
 
-    cam.set_aoi(0, 0, 1024, 1024)
-    cam.alloc()
-    cam.capture_video()
-    cam.trigger_on()
-    #cam.freeze_video(500000)
+    view.cam.set_aoi(0, 0,640, 480)
+    view.cam.alloc()
+    view.cam.capture_video()
 
 
     # a thread that waits for new images and processes all connected views
-    thread = FrameThread(cam, view)
+    thread = FrameThread(view.cam, view)
     thread.start()
+
 
     # cleanup
     app.exit_connect(thread.stop)
@@ -79,8 +73,8 @@ def main():
     thread.stop()
     thread.join()
 
-    cam.stop_video()
-    cam.exit()
+    view.cam.stop_video()
+    view.cam.exit()
 
 if __name__ == "__main__":
     main()
