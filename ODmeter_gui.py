@@ -39,8 +39,6 @@ class ODMeterWindow(QMainWindow):
 
         self.imageCounter = 0
 
-
-
     def initUI(self):
         self.scene = QGraphicsScene()
         self.camera_graphics_view.setScene(self.scene)
@@ -83,7 +81,6 @@ class ODMeterWindow(QMainWindow):
         self.cam.trigger_on(self.triggerMode)
         self.reset_image_counter()
 
-
     @pyqtSlot()
     def trigger_falling(self):
         self.triggerMode = 3
@@ -108,10 +105,6 @@ class ODMeterWindow(QMainWindow):
     def handle(self, image_data):
         if self.triggerMode == 2 or self.triggerMode == 3:
             self.imageCounter = self.imageCounter + 1
-            print(self.imageCounter)
-
-
-
         self.image = self.user_callback(self, image_data)
         self.update_signal.emit(self.image)
         # unlock the buffer so we can use it again
