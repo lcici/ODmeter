@@ -10,6 +10,7 @@
 
 
 from pyueye import ueye
+import ctypes
 from pyueye_example_utils import (uEyeException, Rect, get_bits_per_pixel,
                                   ImageBuffer, check)
 
@@ -155,6 +156,44 @@ class Camera:
         ueye.is_EnableMessage(self.h_cam, ueye.IS_FRAME, hwnd)
 
         return ueye.is_EnableMessage(self.h_cam, ueye.IS_TRIGGER, hwnd)
+
+    def get_frame_rate(self):
+        framerate = ueye.c_double()
+        ret = ueye.is_GetFramesPerSecond(self.h_cam, framerate)
+        if ret == ueye.IS_SUCCESS:
+            return framerate
+        else:
+            print("Get Frame Rate Error!")
+
+    def get_pixel_clock_range(self):
+        command = ueye.IS_PIXELCLOCK_CMD_GET_DEFAULT
+        range = ueye.c_uint()
+        range_size = ueye.sizeof(range)
+        ret = ueye.is_PixelClock(self.h_cam, command, ctypes.pointer(range), range_size)
+        if ret == ueye.IS_SUCCESS:
+            print(range)
+            return range
+        else:
+            print("Get Pixel Clock Range Error")
+
+    def get_sensor_info(self):
+        sensor_info = ueye.SENSORINFO()
+        ret = ueye.is_GetSensorInfo(self.h_cam, sensor_info)
+        if ret == ueye.IS_SUCCESS:
+            return sensor_info
+        else:
+            print("Get Sensor Info Error")
+
+    def get_cam_info(self):
+        cam_info = ueye.CAMINFO()
+        ret = ueye.is_GetCameraInfo(self.h_cam, cam_info)
+        if ret == ueye.IS_SUCCESS:
+            return cam_info
+        else:
+            print("Get Camera Info Error")
+
+
+
 
 
 

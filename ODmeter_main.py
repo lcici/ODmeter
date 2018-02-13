@@ -31,10 +31,13 @@ def main():
     view.user_callback = process_image
 
 
-
-    view.cam.set_aoi(0, 0,640, 480)
+    view.cam.set_aoi(0, 0, 640, 480)
     view.cam.alloc()
     view.cam.capture_video()
+
+    framerate = ueye.c_double()
+    ueye.is_GetFramesPerSecond(view.cam.h_cam, framerate)
+    print(framerate)
 
 
     # a thread that waits for new images and processes all connected views

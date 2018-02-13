@@ -55,6 +55,7 @@ class ODMeterWindow(QMainWindow):
         self.cam.init()
         self.cam.set_colormode(ueye.IS_CM_BGR8_PACKED)
 
+
     def updateCameraSetting(self):
         self.dock_camera_setting.trigger_off_button.clicked.connect(self.trigger_off)
         self.dock_camera_setting.trigger_software_button.clicked.connect(self.trigger_software)
@@ -99,7 +100,6 @@ class ODMeterWindow(QMainWindow):
         self.scene.update()
 
     def user_callback(self, image_data):
-        print(image_data)
         return image_data.as_cv_image()
 
     def handle(self, image_data):
@@ -109,6 +109,19 @@ class ODMeterWindow(QMainWindow):
         self.update_signal.emit(self.image)
         # unlock the buffer so we can use it again
         image_data.unlock()
+
+        framerate = self.cam.get_frame_rate()
+        print(framerate)
+
+        #pixel_range = self.cam.get_pixel_clock_range()
+        #print(pixel_range)
+        sensor_info = self.cam.get_sensor_info()
+        print(sensor_info.SensorID, sensor_info.nMaxWidth)
+        print(sensor_info.SensorID, sensor_info.nMaxWidth)
+
+        cam_info = self.cam.get_cam_info()
+        print(cam_info.SerNo, cam_info.ID, cam_info.Type)
+
 
     def shutdown(self):
         self.close()
@@ -128,9 +141,6 @@ class ODMeterWindow(QMainWindow):
     #reset the image counter
     def reset_image_counter(self):
         self.imageCounter = 0
-
-
-
 
 
 

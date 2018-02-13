@@ -5,6 +5,7 @@ from PyQt5 import QtGui
 def process_image(self, image_data):
     # reshape the image data as 1dimensional array
     image = image_data.as_1d_image()
+    #print(image_data.mem_info.width)
     # make a gray image
     image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
     # image = cv2.medianBlur(image,5)
@@ -22,7 +23,7 @@ def process_image(self, image_data):
             # corresponding to the center of the circle
             cv2.circle(image, (x, y), r, (0, 255, 0), 6)
 
-    print(len(image_data.array), len(image_data.array[0]))
+    #print(len(image_data.array), len(image_data.array[0]))
     # show the image with Qt
     return QtGui.QImage(image.data,
                         image_data.mem_info.width,
