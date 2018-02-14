@@ -52,6 +52,7 @@ class Camera:
     def alloc(self, buffer_count=3):
         rect = self.get_aoi()
         bpp = get_bits_per_pixel(self.get_colormode())
+        print(bpp)
 
         for buff in self.img_buffers:
             check(ueye.is_FreeImageMem(self.h_cam, buff.mem_ptr, buff.mem_id))

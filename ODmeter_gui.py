@@ -36,6 +36,7 @@ class ODMeterWindow(QMainWindow):
         self.initUI()
         self.initCamera()
         self.updateCameraSetting()
+        self.updateCameraInfo()
 
         self.imageCounter = 0
 
@@ -53,8 +54,7 @@ class ODMeterWindow(QMainWindow):
 
         self.cam = Camera()
         self.cam.init()
-        self.cam.set_colormode(ueye.IS_CM_BGR8_PACKED)
-
+        self.cam.set_colormode(ueye.IS_CM_MONO8)
 
     def updateCameraSetting(self):
         self.dock_camera_setting.trigger_off_button.clicked.connect(self.trigger_off)
@@ -62,6 +62,30 @@ class ODMeterWindow(QMainWindow):
         self.dock_camera_setting.trigger_rising_button.clicked.connect(self.trigger_rising)
         self.dock_camera_setting.trigger_falling_button.clicked.connect(self.trigger_falling)
 
+    def updateCameraInfo(self):
+
+       # print(sensor_info.SensorID, sensor_info.nMaxWidth)
+        #print(sensor_info.SensorID, sensor_info.nMaxWidth)
+
+        cam_info = self.cam.get_cam_info()
+        sensor_info = self.cam.get_sensor_info()
+
+        #update camera info on GUI
+        self.SNInfo.setText(cam_info.SerNo.decode("utf-8"))
+
+        #update sensor info on GUI
+        self.typeInfo.setText(sensor_info.strSensorName.decode("utf-8"))
+        self.widthInfo.setText(str(sensor_info.nMaxWidth))
+        self.heightInfo.setText(str(sensor_info.nMaxHeight))
+
+        if ord(sensor_info.nColorMode) == ueye.IS_COLORMODE_MONOCHROME:
+            color_mode = "Monochrome"
+        else:
+            color_mode = "Color"
+        self.colorInfo.setText(color_mode)
+        #update pixel rate
+        pixel_rate = self.cam.get_pixel_clock_range()
+        #self.clockInfo.setText(str(pixel_rate))
 
 
     @pyqtSlot()
@@ -111,16 +135,9 @@ class ODMeterWindow(QMainWindow):
         image_data.unlock()
 
         framerate = self.cam.get_frame_rate()
-        print(framerate)
+      #  print(framerate)
 
-        #pixel_range = self.cam.get_pixel_clock_range()
-        #print(pixel_range)
-        sensor_info = self.cam.get_sensor_info()
-        print(sensor_info.SensorID, sensor_info.nMaxWidth)
-        print(sensor_info.SensorID, sensor_info.nMaxWidth)
 
-        cam_info = self.cam.get_cam_info()
-        print(cam_info.SerNo, cam_info.ID, cam_info.Type)
 
 
     def shutdown(self):

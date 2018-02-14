@@ -43,6 +43,7 @@ class Camera:
         rect = self.get_aoi()
         bpp = get_bits_per_pixel(self.get_colormode())
 
+
         for buff in self.img_buffers:
             check(ueye.is_FreeImageMem(self.h_cam, buff.mem_ptr, buff.mem_id))
 
@@ -165,11 +166,23 @@ class Camera:
         else:
             print("Get Frame Rate Error!")
 
+    def get_pixel_clock_rate(self):
+        command = ueye.IS_PIXELCLOCK_CMD_GET
+        rate = ueye.uint(0)
+        rate_size = ueye.sizeof(rate)
+        ret = ueye.is_PixelClock(self.h_cam, command, rate, rate_size)
+        if ret == ueye.IS_SUCCESS:
+            print(rate)
+            return rate
+        else:
+            print("Get Pixel Clock Range Error")
+
     def get_pixel_clock_range(self):
-        command = ueye.IS_PIXELCLOCK_CMD_GET_DEFAULT
-        range = ueye.c_uint()
-        range_size = ueye.sizeof(range)
-        ret = ueye.is_PixelClock(self.h_cam, command, ctypes.pointer(range), range_size)
+        command = ueye.IS_PIXELCLOCK_CMD_GET_RANGE
+        range = ueye.c_uint(0)
+
+        range_size = 3 * ueye.sizeof(ueye.c_uint(0))
+        ret = ueye.is_PixelClock(self.h_cam, command, range, range_size)
         if ret == ueye.IS_SUCCESS:
             print(range)
             return range

@@ -3,11 +3,12 @@ import numpy as np
 from PyQt5 import QtGui
 
 def process_image(self, image_data):
+    pass
     # reshape the image data as 1dimensional array
     image = image_data.as_1d_image()
     #print(image_data.mem_info.width)
     # make a gray image
-    image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+   # image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
     # image = cv2.medianBlur(image,5)
     # find circles in the image
     circles = cv2.HoughCircles(image, cv2.HOUGH_GRADIENT, 1.2, 100)
