@@ -10,7 +10,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/ODmeter$ODmeter_main.coverage" NAME="ODmeter_main Coverage Results" MODIFIED="1518647393062" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/ODmeter$ODmeter_main.coverage" NAME="ODmeter_main Coverage Results" MODIFIED="1518648113144" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
@@ -39,7 +39,7 @@
       <file leaf-file-name="ODmeter_gui.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ODmeter_gui.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="561">
+            <state relative-caret-position="918">
               <caret line="87" column="9" lean-forward="false" selection-start-line="87" selection-start-column="9" selection-end-line="87" selection-end-column="9" />
               <folding />
             </state>
@@ -60,7 +60,7 @@
         <entry file="file://$USER_HOME$/PycharmProjects/ODmeter/venv/Lib/site-packages/pyueye/ueye.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="186">
-              <caret line="275" column="41" lean-forward="false" selection-start-line="275" selection-start-column="36" selection-end-line="275" selection-end-column="41" />
+              <caret line="88" column="39" lean-forward="false" selection-start-line="88" selection-start-column="34" selection-end-line="88" selection-end-column="39" />
               <folding />
             </state>
           </provider>
@@ -69,8 +69,8 @@
       <file leaf-file-name="ODmeter_camera.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ODmeter_camera.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="543">
-              <caret line="181" column="30" lean-forward="true" selection-start-line="181" selection-start-column="30" selection-end-line="181" selection-end-column="30" />
+            <state relative-caret-position="424">
+              <caret line="186" column="25" lean-forward="false" selection-start-line="186" selection-start-column="25" selection-end-line="186" selection-end-column="25" />
               <folding>
                 <element signature="e#289#312#0" expanded="true" />
               </folding>
@@ -356,14 +356,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/PycharmProjects/ODmeter/venv/Lib/site-packages/pyueye/ueye.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="275" column="41" lean-forward="false" selection-start-line="275" selection-start-column="36" selection-end-line="275" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pyueye_example_utils.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="929">
@@ -372,9 +364,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/PycharmProjects/ODmeter/venv/Lib/site-packages/pyueye/ueye.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="88" column="39" lean-forward="false" selection-start-line="88" selection-start-column="34" selection-end-line="88" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ODmeter_gui.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
+        <state relative-caret-position="918">
           <caret line="87" column="9" lean-forward="false" selection-start-line="87" selection-start-column="9" selection-end-line="87" selection-end-column="9" />
           <folding />
         </state>
@@ -382,8 +382,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ODmeter_camera.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="543">
-          <caret line="181" column="30" lean-forward="true" selection-start-line="181" selection-start-column="30" selection-end-line="181" selection-end-column="30" />
+        <state relative-caret-position="424">
+          <caret line="186" column="25" lean-forward="false" selection-start-line="186" selection-start-column="25" selection-end-line="186" selection-end-column="25" />
           <folding>
             <element signature="e#289#312#0" expanded="true" />
           </folding>
