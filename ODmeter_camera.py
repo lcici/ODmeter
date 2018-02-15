@@ -172,7 +172,6 @@ class Camera:
         rate_size = ueye.sizeof(rate)
         ret = ueye.is_PixelClock(self.h_cam, command, rate, rate_size)
         if ret == ueye.IS_SUCCESS:
-            print(rate)
             return rate
         else:
             print("Get Pixel Clock Range Error")
@@ -180,12 +179,11 @@ class Camera:
     def get_pixel_clock_range(self):
         command = ueye.IS_PIXELCLOCK_CMD_GET_RANGE
         range = (ctypes.c_uint * 3)()
-
         range_size = 3 * ueye.sizeof(ueye.c_uint(0))
         ret = ueye.is_PixelClock(self.h_cam, command, range, range_size)
         if ret == ueye.IS_SUCCESS:
             print(range[1])
-            return range
+            return range[0], range[1]
         else:
             print("Get Pixel Clock Range Error")
 

@@ -29,9 +29,10 @@ class ODMeterWindow(QMainWindow):
     def __init__(self, parent=None):
         super(self.__class__, self).__init__(parent)
         loadUi("MainWindow.ui", self)
-        self.dock_camera_setting = loadUi("dock_CameraSetting.ui")
 
-        self.addDockWidget(Qt.BottomDockWidgetArea, self.dock_camera_setting)
+        #dock widget (not used)
+        #self.dock_camera_setting = loadUi("dock_CameraSetting.ui")
+        #self.addDockWidget(Qt.BottomDockWidgetArea, self.dock_camera_setting)
 
         self.initUI()
         self.initCamera()
@@ -57,10 +58,11 @@ class ODMeterWindow(QMainWindow):
         self.cam.set_colormode(ueye.IS_CM_MONO8)
 
     def updateCameraSetting(self):
-        self.dock_camera_setting.trigger_off_button.clicked.connect(self.trigger_off)
-        self.dock_camera_setting.trigger_software_button.clicked.connect(self.trigger_software)
-        self.dock_camera_setting.trigger_rising_button.clicked.connect(self.trigger_rising)
-        self.dock_camera_setting.trigger_falling_button.clicked.connect(self.trigger_falling)
+        #self.dock_camera_setting.trigger_off_button.clicked.connect(self.trigger_off)
+        self.trigger_off_button.clicked.connect(self.trigger_off)
+        self.trigger_software_button.clicked.connect(self.trigger_software)
+        self.trigger_rising_button.clicked.connect(self.trigger_rising)
+        self.trigger_falling_button.clicked.connect(self.trigger_falling)
 
     def updateCameraInfo(self):
 
@@ -84,8 +86,10 @@ class ODMeterWindow(QMainWindow):
             color_mode = "Color"
         self.colorInfo.setText(color_mode)
         #update pixel rate
-        pixel_rate = self.cam.get_pixel_clock_range()
-        #self.clockInfo.setText(str(pixel_rate))
+        pixel_rate = self.cam.get_pixel_clock_rate()
+        self.clockInfo.setText(str(pixel_rate))
+        pixel_rate_min, pixel_rate_max = self.cam.get_pixel_clock_range()
+        self.clockMaxInfo.setText(str(pixel_rate_max))
 
 
     @pyqtSlot()
@@ -135,11 +139,7 @@ class ODMeterWindow(QMainWindow):
         image_data.unlock()
 
         framerate = self.cam.get_frame_rate()
-      #  print(framerate)
-
-
-
-
+        
     def shutdown(self):
         self.close()
 
