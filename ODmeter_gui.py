@@ -7,20 +7,21 @@
 #------------------------------------------------------------------------------
 from PyQt5 import QtCore
 from PyQt5 import QtGui
-from PyQt5 import QtWidgets
+#from PyQt5 import QtWidgets
 from PyQt5.QtCore import Qt, pyqtSlot
 
-from PyQt5.QtWidgets import QGraphicsScene, QApplication
-from PyQt5.QtWidgets import QGraphicsView
-from PyQt5.QtWidgets import QHBoxLayout, QVBoxLayout, QPushButton, QSlider, QWidget, QMainWindow
+from PyQt5.QtWidgets import QGraphicsScene, QApplication, QMainWindow
+#from PyQt5.QtWidgets import QGraphicsView
+#from PyQt5.QtWidgets import QHBoxLayout, QVBoxLayout, QSlider, QWidget,
 
 from pyueye import ueye
 from PyQt5.uic import loadUi
 
 from ODmeter_camera import Camera
+from pyueye_example_utils import Rect
 
-import ctypes
-from ctypes.wintypes import HWND, MSG
+#import ctypes
+#from ctypes.wintypes import HWND, MSG
 
 
 class ODMeterWindow(QMainWindow):
@@ -36,7 +37,8 @@ class ODMeterWindow(QMainWindow):
 
         self.initUI()
         self.initCamera()
-        self.updateCameraSetting()
+        self.updateAOISetting()
+        self.updateTriggerSetting()
         self.updateCameraInfo()
 
         self.imageCounter = 0
@@ -57,7 +59,12 @@ class ODMeterWindow(QMainWindow):
         self.cam.init()
         self.cam.set_colormode(ueye.IS_CM_MONO8)
 
-    def updateCameraSetting(self):
+    def updateAOISetting(self):
+        #set AOI
+        self.aoi_rect = Rect()
+        self.AOIComboBox.currentIndexChanged.connect(self.aoi_setting)
+
+    def updateTriggerSetting(self):
         #self.dock_camera_setting.trigger_off_button.clicked.connect(self.trigger_off)
         self.trigger_off_button.clicked.connect(self.trigger_off)
         self.trigger_software_button.clicked.connect(self.trigger_software)
@@ -65,10 +72,8 @@ class ODMeterWindow(QMainWindow):
         self.trigger_falling_button.clicked.connect(self.trigger_falling)
 
     def updateCameraInfo(self):
-
        # print(sensor_info.SensorID, sensor_info.nMaxWidth)
         #print(sensor_info.SensorID, sensor_info.nMaxWidth)
-
         cam_info = self.cam.get_cam_info()
         sensor_info = self.cam.get_sensor_info()
 
@@ -116,6 +121,18 @@ class ODMeterWindow(QMainWindow):
         self.cam.trigger_on(self.triggerMode)
         self.reset_image_counter()
 
+    @pyqtSlot()
+    def aoi_setting(self):
+        #print(self.AOIComboBox.currentText())
+
+        if self.AOIComboBox.currentText() == "2560 x 1920":
+            print("choose 2560")
+            self.aoi_rect.x, self.aoi_rect.y, self.aoi_rect.width, self.aoi_rect.height = 0, 0, 2560, 1920
+        elif self.AOIComboBox.currentText() == "640 x 480":
+            print("choose 640")
+            self.aoi_rect.x, self.aoi_rect.y, self.aoi_rect.width, self.aoi_rect.height = 0, 0, 640, 480
+
+        self.cam.set_aoi(self.aoi_rect.x, self.aoi_rect.y, self.aoi_rect.width, self.aoi_rect.height)
 
         #Update the Camera View background
     def draw_background(self, painter, rect):
@@ -123,6 +140,8 @@ class ODMeterWindow(QMainWindow):
             #keep the image in the original size
             image = self.image.scaled(self.image.width(), self.image.height(), QtCore.Qt.KeepAspectRatio)
             painter.drawImage(rect.x(), rect.y(), image)
+
+
 
     def update_image(self, image):
         self.scene.update()
@@ -145,15 +164,6 @@ class ODMeterWindow(QMainWindow):
 
     def add_processor(self, callback):
         self.processors.append(callback)
-
-    # find the window to receive the message, not used
-    def find_window(self, winName):
-        User32 = ctypes.windll.LoadLibrary("User32.dll")
-
-        User32.FindWindowW.argtypes = [ctypes.wintypes.LPCWSTR, ctypes.wintypes.LPCWSTR]
-        User32.FindWindowW.restypes = [ctypes.wintypes.HWND]
-        wHWND = User32.FindWindowW(None, winName)
-        return wHWND
 
     #reset the image counter
     def reset_image_counter(self):

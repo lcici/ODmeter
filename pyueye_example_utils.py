@@ -117,6 +117,9 @@ class ImageData:
 
     def as_1d_image(self):        
         channels = int((7 + self.bits_per_pixel) / 8)
+        #print(self.bits_per_pixel)
+        #print(self.mem_info.height)
+        #print(self.mem_info.width)
         import numpy
         if channels > 1:
             return numpy.reshape(self.array, (self.mem_info.height, self.mem_info.width, channels))

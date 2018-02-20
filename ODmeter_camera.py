@@ -17,6 +17,7 @@ from pyueye_example_utils import (uEyeException, Rect, get_bits_per_pixel,
 
 #global variant
 #TriggerMode = 2
+BUFFER_COUNTS = 3
 
 class Camera:
     def __init__(self, device_id=0):
@@ -39,13 +40,11 @@ class Camera:
     def handle(self):
         return self.h_cam
 
-    def alloc(self, buffer_count=3):
+    def alloc(self, buffer_count = BUFFER_COUNTS):
         rect = self.get_aoi()
         bpp = get_bits_per_pixel(self.get_colormode())
 
-
-        for buff in self.img_buffers:
-            check(ueye.is_FreeImageMem(self.h_cam, buff.mem_ptr, buff.mem_id))
+        self.free_image_memory()
 
         for i in range(buffer_count):
             buff = ImageBuffer()
@@ -54,17 +53,27 @@ class Camera:
                                   buff.mem_ptr, buff.mem_id)
 
             check(ueye.is_AddToSequence(self.h_cam, buff.mem_ptr, buff.mem_id))
-
             self.img_buffers.append(buff)
 
         ueye.is_InitImageQueue(self.h_cam, 0)
+
+    def free_image_memory(self):
+        if self.live_on is True:
+            self.stop_video()
+
+        for buff in self.img_buffers:
+            ret = ueye.is_FreeImageMem(self.h_cam, buff.mem_ptr, buff.mem_id)
+
+            if ret != ueye.IS_SUCCESS:
+                print("Free Image Memory Error!")
+        # reset img_buffers
+        self.img_buffers = []
 
     def init(self):
         ret = ueye.is_InitCamera(self.h_cam, self.h_wnd)
         if ret != ueye.IS_SUCCESS:
             self.h_cam = None
             raise uEyeException(ret)
-
         self.enable_message(self.h_wnd)
         return ret
 
@@ -88,13 +97,22 @@ class Camera:
                     rect_aoi.s32Height.value)
 
     def set_aoi(self, x, y, width, height):
+        if self.live_on is True:
+            self.stop_video()
+
+        print("stop video")
         rect_aoi = ueye.IS_RECT()
         rect_aoi.s32X = ueye.int(x)
         rect_aoi.s32Y = ueye.int(y)
         rect_aoi.s32Width = ueye.int(width)
         rect_aoi.s32Height = ueye.int(height)
 
-        return ueye.is_AOI(self.h_cam, ueye.IS_AOI_IMAGE_SET_AOI, rect_aoi, ueye.sizeof(rect_aoi))
+        ret = ueye.is_AOI(self.h_cam, ueye.IS_AOI_IMAGE_SET_AOI, rect_aoi, ueye.sizeof(rect_aoi))
+
+        self.alloc()
+        self.capture_video()
+
+        return None
 
     def capture_video(self, wait=False):
         wait_param = ueye.IS_WAIT if wait else ueye.IS_DONT_WAIT

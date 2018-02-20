@@ -456,7 +456,7 @@
      <rect>
       <x>210</x>
       <y>530</y>
-      <width>271</width>
+      <width>221</width>
       <height>151</height>
      </rect>
     </property>
@@ -468,7 +468,7 @@
       <rect>
        <x>20</x>
        <y>20</y>
-       <width>181</width>
+       <width>161</width>
        <height>104</height>
       </rect>
      </property>
@@ -484,7 +484,7 @@
        </widget>
       </item>
       <item row="0" column="1">
-       <widget class="QComboBox" name="comboBox">
+       <widget class="QComboBox" name="AOIComboBox">
         <item>
          <property name="text">
           <string>undefined</string>
@@ -510,7 +510,7 @@
        </widget>
       </item>
       <item row="1" column="1">
-       <widget class="QLineEdit" name="lineEdit"/>
+       <widget class="QLineEdit" name="widthLineEdit"/>
       </item>
       <item row="2" column="0">
        <widget class="QLabel" name="label_13">
@@ -520,16 +520,15 @@
        </widget>
       </item>
       <item row="2" column="1">
-       <widget class="QLineEdit" name="lineEdit_2"/>
+       <widget class="QLineEdit" name="heightLineEdit"/>
       </item>
      </layout>
-     <zorder>groupBox_2</zorder>
      <zorder>label_9</zorder>
      <zorder>label_11</zorder>
      <zorder>label_13</zorder>
-     <zorder>lineEdit</zorder>
-     <zorder>lineEdit_2</zorder>
-     <zorder>comboBox</zorder>
+     <zorder>widthLineEdit</zorder>
+     <zorder>heightLineEdit</zorder>
+     <zorder>AOIComboBox</zorder>
     </widget>
    </widget>
   </widget>
@@ -539,7 +538,7 @@
      <x>0</x>
      <y>0</y>
      <width>1063</width>
-     <height>23</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">

@@ -10,45 +10,57 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/ODmeter$ODmeter_main.coverage" NAME="ODmeter_main Coverage Results" MODIFIED="1518668891355" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/ODmeter$ODmeter_main.coverage" NAME="ODmeter_main Coverage Results" MODIFIED="1519159328308" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="ODmeter_main.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ODmeter_main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="14" column="23" lean-forward="false" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="23" />
+            <state relative-caret-position="357">
+              <caret line="32" column="28" lean-forward="true" selection-start-line="32" selection-start-column="28" selection-end-line="32" selection-end-column="28" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ODmeter_process.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ODmeter_process.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="7" column="4" lean-forward="false" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ODmeter_gui.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ODmeter_gui.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-438">
+              <caret line="131" column="17" lean-forward="false" selection-start-line="131" selection-start-column="12" selection-end-line="131" selection-end-column="17" />
+              <folding>
+                <element signature="e#260#284#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pyueye_example_utils.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/pyueye_example_utils.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="259">
+              <caret line="121" column="35" lean-forward="true" selection-start-line="121" selection-start-column="35" selection-end-line="121" selection-end-column="35" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="ueye.py" pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/PycharmProjects/pyueye_example/venv/Lib/site-packages/pyueye/ueye.py">
+        <entry file="file://$USER_HOME$/PycharmProjects/ODmeter/venv/Lib/site-packages/pyueye/ueye.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60078">
-              <caret line="3162" column="35" lean-forward="false" selection-start-line="3162" selection-start-column="35" selection-end-line="3162" selection-end-column="35" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ODmeter_gui.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ODmeter_gui.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="141" column="8" lean-forward="false" selection-start-line="141" selection-start-column="8" selection-end-line="141" selection-end-column="8" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pyueye_example_utils.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pyueye_example_utils.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2280">
-              <caret line="122" column="13" lean-forward="false" selection-start-line="122" selection-start-column="12" selection-end-line="122" selection-end-column="13" />
+            <state relative-caret-position="463">
+              <caret line="5630" column="45" lean-forward="true" selection-start-line="5630" selection-start-column="45" selection-end-line="5630" selection-end-column="45" />
               <folding />
             </state>
           </provider>
@@ -57,8 +69,8 @@
       <file leaf-file-name="ODmeter_camera.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ODmeter_camera.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-18">
-              <caret line="153" column="35" lean-forward="true" selection-start-line="153" selection-start-column="35" selection-end-line="153" selection-end-column="35" />
+            <state relative-caret-position="1636">
+              <caret line="202" column="27" lean-forward="true" selection-start-line="202" selection-start-column="11" selection-end-line="202" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -75,21 +87,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>getframes</find>
-      <find>dblFPS</find>
-      <find>pInfo</find>
-      <find>UEYE_AUTO_INFO</find>
-      <find>double</find>
-      <find>HIDS</find>
-      <find>c</find>
-      <find>pixelclock</find>
-      <find>pointer</find>
-      <find>getcamerain</find>
-      <find>BOARDINFO</find>
-      <find>64</find>
-      <find>type_ueye</find>
-      <find>camera_info</find>
-      <find>sensor</find>
       <find>is_color</find>
       <find>mono</find>
       <find>sensorInfo</find>
@@ -105,6 +102,21 @@
       <find />
       <find>get_color</find>
       <find>array</find>
+      <find>drawbackground</find>
+      <find>draw</find>
+      <find>draw_ba</find>
+      <find>ctypes</find>
+      <find>640</find>
+      <find>rect</find>
+      <find>updateCameraSetting</find>
+      <find>img_buffers</find>
+      <find>check</find>
+      <find>error</find>
+      <find>buffer_count</find>
+      <find>is_no_s</find>
+      <find>choose</find>
+      <find>alloc</find>
+      <find>print</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -113,14 +125,14 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/ODmeter_main.py" />
         <option value="$USER_HOME$/PycharmProjects/ODmeter/venv/Lib/site-packages/pyueye/ueye.py" />
         <option value="$PROJECT_DIR$/pyueye_example_camera.py" />
-        <option value="$PROJECT_DIR$/ODmeter_process.py" />
-        <option value="$PROJECT_DIR$/pyueye_example_utils.py" />
         <option value="$USER_HOME$/PycharmProjects/pyueye_example/venv/Lib/site-packages/pyueye/ueye.py" />
+        <option value="$PROJECT_DIR$/ODmeter_process.py" />
+        <option value="$PROJECT_DIR$/ODmeter_main.py" />
         <option value="$PROJECT_DIR$/ODmeter_camera.py" />
         <option value="$PROJECT_DIR$/ODmeter_gui.py" />
+        <option value="$PROJECT_DIR$/pyueye_example_utils.py" />
       </list>
     </option>
   </component>
@@ -131,8 +143,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="56" />
-    <option name="y" value="-14" />
+    <option name="x" value="30" />
+    <option name="y" value="8" />
     <option name="width" value="1551" />
     <option name="height" value="1100" />
   </component>
@@ -151,6 +163,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -162,7 +175,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -242,7 +254,7 @@
       <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3997879" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -265,20 +277,89 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/ODmeter_main.py">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ODmeter_process.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="7" column="4" lean-forward="false" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ODmeter_gui.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2567">
+          <caret line="164" column="40" lean-forward="false" selection-start-line="164" selection-start-column="40" selection-end-line="164" selection-end-column="40" />
+          <folding>
+            <element signature="e#260#284#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pyueye_example_utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2023">
+          <caret line="121" column="33" lean-forward="false" selection-start-line="121" selection-start-column="33" selection-end-line="121" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ODmeter_camera.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1496">
+          <caret line="91" column="25" lean-forward="false" selection-start-line="91" selection-start-column="25" selection-end-line="91" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ODmeter_main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="23" lean-forward="false" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pyueye_example_utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2040">
+          <caret line="122" column="13" lean-forward="false" selection-start-line="122" selection-start-column="12" selection-end-line="122" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ODmeter_camera.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2550">
+          <caret line="153" column="35" lean-forward="true" selection-start-line="153" selection-start-column="35" selection-end-line="153" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ODmeter_gui.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2142">
+          <caret line="141" column="8" lean-forward="false" selection-start-line="141" selection-start-column="8" selection-end-line="141" selection-end-column="8" />
+          <folding>
+            <element signature="e#260#284#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ODmeter_main.py">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="266">
           <caret line="14" column="23" lean-forward="false" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="23" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/PycharmProjects/pyueye_example/venv/Lib/site-packages/pyueye/ueye.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60078">
-          <caret line="3162" column="35" lean-forward="false" selection-start-line="3162" selection-start-column="35" selection-end-line="3162" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/PycharmProjects/pyueye_example/venv/Lib/site-packages/pyueye/ueye.py" />
     <entry file="file://$PROJECT_DIR$/pyueye_example_utils.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2280">
@@ -299,7 +380,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1368">
           <caret line="87" column="47" lean-forward="true" selection-start-line="87" selection-start-column="47" selection-end-line="87" selection-end-column="47" />
-          <folding />
+          <folding>
+            <element signature="e#260#284#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -311,14 +394,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/PycharmProjects/pyueye_example/venv/Lib/site-packages/pyueye/ueye.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85374">
-          <caret line="3162" column="35" lean-forward="false" selection-start-line="3162" selection-start-column="35" selection-end-line="3162" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/PycharmProjects/pyueye_example/venv/Lib/site-packages/pyueye/ueye.py" />
     <entry file="file://$PROJECT_DIR$/pyueye_example_utils.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3240">
@@ -339,7 +415,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1944">
           <caret line="87" column="8" lean-forward="false" selection-start-line="87" selection-start-column="8" selection-end-line="87" selection-end-column="8" />
-          <folding />
+          <folding>
+            <element signature="e#260#284#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -351,19 +429,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/PycharmProjects/pyueye_example/venv/Lib/site-packages/pyueye/ueye.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60078">
-          <caret line="3162" column="35" lean-forward="false" selection-start-line="3162" selection-start-column="35" selection-end-line="3162" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/PycharmProjects/pyueye_example/venv/Lib/site-packages/pyueye/ueye.py" />
     <entry file="file://$PROJECT_DIR$/ODmeter_gui.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1786">
           <caret line="109" column="9" lean-forward="false" selection-start-line="109" selection-start-column="9" selection-end-line="109" selection-end-column="9" />
-          <folding />
+          <folding>
+            <element signature="e#260#284#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -395,7 +468,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1944">
           <caret line="87" column="9" lean-forward="false" selection-start-line="87" selection-start-column="9" selection-end-line="87" selection-end-column="9" />
-          <folding />
+          <folding>
+            <element signature="e#260#284#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -445,55 +520,67 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1819">
           <caret line="122" column="56" lean-forward="false" selection-start-line="122" selection-start-column="56" selection-end-line="122" selection-end-column="56" />
-          <folding />
+          <folding>
+            <element signature="e#260#284#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/PycharmProjects/pyueye_example/venv/Lib/site-packages/pyueye/ueye.py" />
     <entry file="file://$PROJECT_DIR$/pyueye_example_camera.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-751">
+        <state relative-caret-position="170">
           <caret line="54" column="17" lean-forward="false" selection-start-line="54" selection-start-column="17" selection-end-line="54" selection-end-column="17" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ODmeter_process.py" />
-    <entry file="file://$USER_HOME$/PycharmProjects/ODmeter/venv/Lib/site-packages/pyueye/ueye.py" />
+    <entry file="file://$USER_HOME$/PycharmProjects/ODmeter/venv/Lib/site-packages/pyueye/ueye.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="463">
+          <caret line="5630" column="45" lean-forward="true" selection-start-line="5630" selection-start-column="45" selection-end-line="5630" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ODmeter_main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="14" column="23" lean-forward="false" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="23" />
+        <state relative-caret-position="357">
+          <caret line="32" column="28" lean-forward="true" selection-start-line="32" selection-start-column="28" selection-end-line="32" selection-end-column="28" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/PycharmProjects/pyueye_example/venv/Lib/site-packages/pyueye/ueye.py">
+    <entry file="file://$PROJECT_DIR$/ODmeter_process.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60078">
-          <caret line="3162" column="35" lean-forward="false" selection-start-line="3162" selection-start-column="35" selection-end-line="3162" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pyueye_example_utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2280">
-          <caret line="122" column="13" lean-forward="false" selection-start-line="122" selection-start-column="12" selection-end-line="122" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ODmeter_camera.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-18">
-          <caret line="153" column="35" lean-forward="true" selection-start-line="153" selection-start-column="35" selection-end-line="153" selection-end-column="35" />
+        <state relative-caret-position="85">
+          <caret line="7" column="4" lean-forward="false" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ODmeter_gui.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="141" column="8" lean-forward="false" selection-start-line="141" selection-start-column="8" selection-end-line="141" selection-end-column="8" />
+        <state relative-caret-position="-438">
+          <caret line="131" column="17" lean-forward="false" selection-start-line="131" selection-start-column="12" selection-end-line="131" selection-end-column="17" />
+          <folding>
+            <element signature="e#260#284#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ODmeter_camera.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1636">
+          <caret line="202" column="27" lean-forward="true" selection-start-line="202" selection-start-column="11" selection-end-line="202" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pyueye_example_utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="259">
+          <caret line="121" column="35" lean-forward="true" selection-start-line="121" selection-start-column="35" selection-end-line="121" selection-end-column="35" />
           <folding />
         </state>
       </provider>
