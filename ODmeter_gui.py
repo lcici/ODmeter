@@ -70,6 +70,7 @@ class ODMeterWindow(QMainWindow):
         #self.AOIComboBox.currentIndexChanged.connect(self.aoi_setting)
         self.binning_ComboBox.currentIndexChanged.connect(self.binning_setting)
         self.subsampling_ComboBox.currentIndexChanged.connect(self.subsampling_setting)
+        self.gain_spinBox.valueChanged.connect(self.update_gain)
 
     def updateTriggerSetting(self):
         #self.dock_camera_setting.trigger_off_button.clicked.connect(self.trigger_off)
@@ -109,8 +110,8 @@ class ODMeterWindow(QMainWindow):
 
 
     def updateCameraTiming(self):
-        self.CLK_spinBox.valueChanged.connect(self.set_pixel_rate)
-        self.exposure_time_spinBox.valueChanged.connect(self.set_exposure_time)
+        self.CLK_spinBox.valueChanged.connect(self.update_pixel_rate)
+        self.exposure_time_spinBox.valueChanged.connect(self.update_exposure_time)
 
 
     @pyqtSlot()
@@ -208,15 +209,20 @@ class ODMeterWindow(QMainWindow):
         self.exposure_current_Info.setText(str("%.3f" % exposure_time))
 
     @pyqtSlot()
-    def set_pixel_rate(self):
+    def update_pixel_rate(self):
         rate = self.CLK_spinBox.value()
         print(rate)
         self.cam.set_pixel_clock_rate(rate)
 
     @pyqtSlot()
-    def set_exposure_time(self):
+    def update_exposure_time(self):
         time = self.exposure_time_spinBox.value()
         self.cam.set_exposure_time(time)
+
+    @pyqtSlot()
+    def update_gain(self):
+        factor = self.gain_spinBox.value()
+        self.cam.set_gain(factor)
 
         #Update the Camera View background
     def draw_background(self, painter, rect):

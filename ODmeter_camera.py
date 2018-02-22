@@ -267,6 +267,17 @@ class Camera:
         ret = ueye.is_SetBinning(self.h_cam, mode_V)
         if ret != ueye.IS_SUCCESS:
             print("Set Vertical Binning Error ")
+    def get_gain(self):
+        mode = ueye.IS_GET_MASTER_GAIN_FACTOR
+        factor = 1
+        ret = ueye.is_SetHWGainFactor(self.h_cam, mode, factor)
+
+    def set_gain(self, factor):
+        mode = ueye.IS_SET_MASTER_GAIN_FACTOR
+        factor = int(round(factor * 100))
+        ret = ueye.is_SetHWGainFactor(self.h_cam, mode, factor)
+
+
 
 
 
