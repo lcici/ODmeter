@@ -11,6 +11,7 @@ from PyQt5 import QtGui
 from PyQt5.QtCore import Qt, pyqtSlot
 
 from PyQt5.QtWidgets import QGraphicsScene, QApplication, QMainWindow
+from PyQt5.QtGui import QPixmap, QImage
 #from PyQt5.QtWidgets import QGraphicsView
 #from PyQt5.QtWidgets import QHBoxLayout, QVBoxLayout, QSlider, QWidget,
 
@@ -189,32 +190,6 @@ class ODMeterWindow(QMainWindow):
         print(self.ratio_subsampling)
         self.aoi_setting()
 
-    @pyqtSlot()
-    def aoi_setting_test(self):
-        #print(self.AOIComboBox.currentText())
-        #set the AOI based on the input from GUI
-
-        if self.AOIComboBox.currentText() == "2560 x 1920":
-            self.aoi_rect.x, self.aoi_rect.y, self.aoi_rect.width, self.aoi_rect.height = 0, 0, 2560, 1920
-            self.CLK_range_label.setText('(5 to 30)')
-            self.CLK_spinBox.setMaximum(30)
-
-        elif self.AOIComboBox.currentText() == "1280 x 960":
-            self.aoi_rect.x, self.aoi_rect.y, self.aoi_rect.width, self.aoi_rect.height = 0, 0, 1280, 960
-            self.CLK_range_label.setText('(5 to 50)')
-            self.CLK_spinBox.setMaximum(50)
-
-        elif self.AOIComboBox.currentText() == "640 x 480":
-            self.aoi_rect.x, self.aoi_rect.y, self.aoi_rect.width, self.aoi_rect.height = 0, 0, 640, 480
-            self.CLK_range_label.setText('(5 to 60)')
-            self.CLK_spinBox.setMaximum(60)
-
-        elif self.AOIComboBox.currentText() == "320 x 240":
-            self.aoi_rect.x, self.aoi_rect.y, self.aoi_rect.width, self.aoi_rect.height = 0, 0, 320, 240
-            self.CLK_range_label.setText('(5 to 90)')
-            self.CLK_spinBox.setMaximum(90)
-
-        self.cam.set_aoi(self.aoi_rect.x, self.aoi_rect.y, self.aoi_rect.width, self.aoi_rect.height)
 
     @pyqtSlot()
     def frame_rate_update(self):
@@ -262,6 +237,20 @@ class ODMeterWindow(QMainWindow):
             self.imageCounter = self.imageCounter + 1
         self.image = self.user_callback(self, image_data)
         self.update_signal.emit(self.image)
+
+        if self.imageCounter == 1:
+            self.image_first = self.image
+        elif self.imageCounter == 2:
+            self.image_second = self.image
+        elif self.imageCounter == 3:
+            self.image_third = self.image
+            self.reset_image_counter()
+          #update when all three images are collected
+            self.display_buffer_image(self.image_first, 1)
+            self.display_buffer_image(self.image_second, 2)
+            self.display_buffer_image(self.image_third, 3)
+
+
         # unlock the buffer so we can use it again
         image_data.unlock()
         
@@ -301,6 +290,20 @@ class ODMeterWindow(QMainWindow):
         elif self.aoi_rect.height == 240:
             self.CLK_range_label.setText('(5 to 43)')
             self.CLK_spinBox.setMaximum(43)
+
+    def display_buffer_image(self, image_data, window):
+        if window == 1:
+            self.image_first_label.setPixmap(QPixmap.fromImage(image_data))
+            self.image_first_label.setAlignment(QtCore.Qt.AlignHCenter | QtCore.Qt.AlignVCenter)
+
+        elif window == 2:
+            self.image_second_label.setPixmap(QPixmap.fromImage(image_data))
+            self.image_second_label.setAlignment(QtCore.Qt.AlignHCenter | QtCore.Qt.AlignVCenter)
+
+        elif window == 3:
+            self.image_third_label.setPixmap(QPixmap.fromImage(image_data))
+            self.image_third_label.setAlignment(QtCore.Qt.AlignHCenter | QtCore.Qt.AlignVCenter)
+
 
 class ODMeterApp:
     def __init__(self, args=[]):

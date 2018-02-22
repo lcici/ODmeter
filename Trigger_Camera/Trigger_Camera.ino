@@ -14,12 +14,31 @@ void setup() {
 }
 
 void loop() {
+  
   digitalWrite(LED_BUILTIN, HIGH);
   digitalWrite(triggerPin, HIGH);
-  delay(2000);
+  delay(8);
 
   digitalWrite(LED_BUILTIN, LOW);
   digitalWrite(triggerPin, LOW);
-  delay(2000);  
+  delay(8); 
+
+  digitalWrite(LED_BUILTIN, HIGH);
+  digitalWrite(triggerPin, HIGH);
+  delay(8);
+
+  digitalWrite(LED_BUILTIN, LOW);
+  digitalWrite(triggerPin, LOW);
+  delay(8);  
+
+  digitalWrite(LED_BUILTIN, HIGH); 
+  digitalWrite(triggerPin, HIGH);
+  delay(8);
+
+  digitalWrite(LED_BUILTIN, LOW);
+  digitalWrite(triggerPin, LOW);
+  delay(8);  
+
+  delay(2000); 
 
 }

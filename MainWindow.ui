@@ -24,26 +24,6 @@
      </rect>
     </property>
    </widget>
-   <widget class="QGraphicsView" name="graphicsView_2">
-    <property name="geometry">
-     <rect>
-      <x>670</x>
-      <y>10</y>
-      <width>256</width>
-      <height>192</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QGraphicsView" name="graphicsView_3">
-    <property name="geometry">
-     <rect>
-      <x>670</x>
-      <y>210</y>
-      <width>256</width>
-      <height>192</height>
-     </rect>
-    </property>
-   </widget>
    <widget class="QGroupBox" name="groupBox">
     <property name="geometry">
      <rect>
@@ -544,40 +524,53 @@
      </layout>
     </widget>
    </widget>
-   <widget class="QComboBox" name="AOIComboBox">
+   <widget class="QLabel" name="image_first_label">
     <property name="geometry">
      <rect>
-      <x>520</x>
-      <y>750</y>
-      <width>151</width>
-      <height>20</height>
+      <x>680</x>
+      <y>20</y>
+      <width>320</width>
+      <height>240</height>
      </rect>
     </property>
-    <item>
-     <property name="text">
-      <string>2560 x 1920</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>1280 x 960</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>640 x 480</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>320 x 240</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>undefined</string>
-     </property>
-    </item>
+    <property name="frameShape">
+     <enum>QFrame::Box</enum>
+    </property>
+    <property name="text">
+     <string>TextLabel</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="image_second_label">
+    <property name="geometry">
+     <rect>
+      <x>680</x>
+      <y>280</y>
+      <width>320</width>
+      <height>240</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Box</enum>
+    </property>
+    <property name="text">
+     <string>TextLabel</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="image_third_label">
+    <property name="geometry">
+     <rect>
+      <x>680</x>
+      <y>550</y>
+      <width>320</width>
+      <height>240</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Box</enum>
+    </property>
+    <property name="text">
+     <string>TextLabel</string>
+    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
