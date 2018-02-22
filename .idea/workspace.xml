@@ -10,7 +10,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/ODmeter$ODmeter_main.coverage" NAME="ODmeter_main Coverage Results" MODIFIED="1519159328308" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/ODmeter$ODmeter_main.coverage" NAME="ODmeter_main Coverage Results" MODIFIED="1519266459483" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
@@ -34,22 +34,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ODmeter_gui.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ODmeter_gui.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ODmeter_gui.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-438">
-              <caret line="131" column="17" lean-forward="false" selection-start-line="131" selection-start-column="12" selection-end-line="131" selection-end-column="17" />
+            <state relative-caret-position="643">
+              <caret line="299" column="0" lean-forward="true" selection-start-line="299" selection-start-column="0" selection-end-line="299" selection-end-column="0" />
               <folding>
                 <element signature="e#260#284#0" expanded="true" />
+                <element signature="e#2309#2675#0" expanded="false" />
+                <element signature="e#3886#4024#0" expanded="false" />
+                <element signature="e#4078#4179#0" expanded="false" />
+                <element signature="e#4237#4338#0" expanded="false" />
+                <element signature="e#4394#4495#0" expanded="false" />
+                <element signature="e#4552#4653#0" expanded="false" />
+                <element signature="e#4710#5641#0" expanded="false" />
+                <element signature="e#5702#6880#0" expanded="false" />
+                <element signature="e#6938#8188#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pyueye_example_utils.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="pyueye_example_utils.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pyueye_example_utils.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="259">
+            <state relative-caret-position="514">
               <caret line="121" column="35" lean-forward="true" selection-start-line="121" selection-start-column="35" selection-end-line="121" selection-end-column="35" />
               <folding />
             </state>
@@ -59,8 +68,8 @@
       <file leaf-file-name="ueye.py" pinned="false" current-in-tab="false">
         <entry file="file://$USER_HOME$/PycharmProjects/ODmeter/venv/Lib/site-packages/pyueye/ueye.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="463">
-              <caret line="5630" column="45" lean-forward="true" selection-start-line="5630" selection-start-column="45" selection-end-line="5630" selection-end-column="45" />
+            <state relative-caret-position="240">
+              <caret line="7337" column="144" lean-forward="false" selection-start-line="7337" selection-start-column="135" selection-end-line="7337" selection-end-column="144" />
               <folding />
             </state>
           </provider>
@@ -69,8 +78,8 @@
       <file leaf-file-name="ODmeter_camera.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ODmeter_camera.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1636">
-              <caret line="202" column="27" lean-forward="true" selection-start-line="202" selection-start-column="11" selection-end-line="202" selection-end-column="27" />
+            <state relative-caret-position="565">
+              <caret line="268" column="48" lean-forward="true" selection-start-line="268" selection-start-column="48" selection-end-line="268" selection-end-column="48" />
               <folding />
             </state>
           </provider>
@@ -87,12 +96,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>is_color</find>
-      <find>mono</find>
-      <find>sensorInfo</find>
-      <find>c_char</find>
-      <find>sensorinfo</find>
-      <find>IS_GET_COLOR_MODE</find>
       <find>IS_CM_SENSOR</find>
       <find>get</find>
       <find>c_uint</find>
@@ -116,7 +119,13 @@
       <find>is_no_s</find>
       <find>choose</find>
       <find>alloc</find>
+      <find>is_exposure</find>
+      <find>uint</find>
+      <find>double</find>
+      <find>subsampling</find>
       <find>print</find>
+      <find>supported</find>
+      <find>aoi_setting</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -130,9 +139,9 @@
         <option value="$USER_HOME$/PycharmProjects/pyueye_example/venv/Lib/site-packages/pyueye/ueye.py" />
         <option value="$PROJECT_DIR$/ODmeter_process.py" />
         <option value="$PROJECT_DIR$/ODmeter_main.py" />
+        <option value="$PROJECT_DIR$/pyueye_example_utils.py" />
         <option value="$PROJECT_DIR$/ODmeter_camera.py" />
         <option value="$PROJECT_DIR$/ODmeter_gui.py" />
-        <option value="$PROJECT_DIR$/pyueye_example_utils.py" />
       </list>
     </option>
   </component>
@@ -143,8 +152,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="30" />
-    <option name="y" value="8" />
+    <option name="x" value="14" />
+    <option name="y" value="-10" />
     <option name="width" value="1551" />
     <option name="height" value="1100" />
   </component>
@@ -246,7 +255,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20042418" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20042418" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22552083" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -271,7 +280,25 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/ODmeter_gui.py</url>
+          <line>127</line>
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/ODmeter_gui.py</url>
+          <line>79</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/ODmeter_gui.py</url>
+          <line>192</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="3" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
@@ -297,6 +324,15 @@
           <caret line="164" column="40" lean-forward="false" selection-start-line="164" selection-start-column="40" selection-end-line="164" selection-end-column="40" />
           <folding>
             <element signature="e#260#284#0" expanded="true" />
+            <element signature="e#2309#2675#0" expanded="false" />
+            <element signature="e#3886#4024#0" expanded="false" />
+            <element signature="e#4078#4179#0" expanded="false" />
+            <element signature="e#4237#4338#0" expanded="false" />
+            <element signature="e#4394#4495#0" expanded="false" />
+            <element signature="e#4552#4653#0" expanded="false" />
+            <element signature="e#4710#5641#0" expanded="false" />
+            <element signature="e#5702#6880#0" expanded="false" />
+            <element signature="e#6938#8188#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -347,6 +383,15 @@
           <caret line="141" column="8" lean-forward="false" selection-start-line="141" selection-start-column="8" selection-end-line="141" selection-end-column="8" />
           <folding>
             <element signature="e#260#284#0" expanded="true" />
+            <element signature="e#2309#2675#0" expanded="false" />
+            <element signature="e#3886#4024#0" expanded="false" />
+            <element signature="e#4078#4179#0" expanded="false" />
+            <element signature="e#4237#4338#0" expanded="false" />
+            <element signature="e#4394#4495#0" expanded="false" />
+            <element signature="e#4552#4653#0" expanded="false" />
+            <element signature="e#4710#5641#0" expanded="false" />
+            <element signature="e#5702#6880#0" expanded="false" />
+            <element signature="e#6938#8188#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -382,6 +427,15 @@
           <caret line="87" column="47" lean-forward="true" selection-start-line="87" selection-start-column="47" selection-end-line="87" selection-end-column="47" />
           <folding>
             <element signature="e#260#284#0" expanded="true" />
+            <element signature="e#2309#2675#0" expanded="false" />
+            <element signature="e#3886#4024#0" expanded="false" />
+            <element signature="e#4078#4179#0" expanded="false" />
+            <element signature="e#4237#4338#0" expanded="false" />
+            <element signature="e#4394#4495#0" expanded="false" />
+            <element signature="e#4552#4653#0" expanded="false" />
+            <element signature="e#4710#5641#0" expanded="false" />
+            <element signature="e#5702#6880#0" expanded="false" />
+            <element signature="e#6938#8188#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -417,6 +471,15 @@
           <caret line="87" column="8" lean-forward="false" selection-start-line="87" selection-start-column="8" selection-end-line="87" selection-end-column="8" />
           <folding>
             <element signature="e#260#284#0" expanded="true" />
+            <element signature="e#2309#2675#0" expanded="false" />
+            <element signature="e#3886#4024#0" expanded="false" />
+            <element signature="e#4078#4179#0" expanded="false" />
+            <element signature="e#4237#4338#0" expanded="false" />
+            <element signature="e#4394#4495#0" expanded="false" />
+            <element signature="e#4552#4653#0" expanded="false" />
+            <element signature="e#4710#5641#0" expanded="false" />
+            <element signature="e#5702#6880#0" expanded="false" />
+            <element signature="e#6938#8188#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -436,6 +499,15 @@
           <caret line="109" column="9" lean-forward="false" selection-start-line="109" selection-start-column="9" selection-end-line="109" selection-end-column="9" />
           <folding>
             <element signature="e#260#284#0" expanded="true" />
+            <element signature="e#2309#2675#0" expanded="false" />
+            <element signature="e#3886#4024#0" expanded="false" />
+            <element signature="e#4078#4179#0" expanded="false" />
+            <element signature="e#4237#4338#0" expanded="false" />
+            <element signature="e#4394#4495#0" expanded="false" />
+            <element signature="e#4552#4653#0" expanded="false" />
+            <element signature="e#4710#5641#0" expanded="false" />
+            <element signature="e#5702#6880#0" expanded="false" />
+            <element signature="e#6938#8188#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -470,6 +542,15 @@
           <caret line="87" column="9" lean-forward="false" selection-start-line="87" selection-start-column="9" selection-end-line="87" selection-end-column="9" />
           <folding>
             <element signature="e#260#284#0" expanded="true" />
+            <element signature="e#2309#2675#0" expanded="false" />
+            <element signature="e#3886#4024#0" expanded="false" />
+            <element signature="e#4078#4179#0" expanded="false" />
+            <element signature="e#4237#4338#0" expanded="false" />
+            <element signature="e#4394#4495#0" expanded="false" />
+            <element signature="e#4552#4653#0" expanded="false" />
+            <element signature="e#4710#5641#0" expanded="false" />
+            <element signature="e#5702#6880#0" expanded="false" />
+            <element signature="e#6938#8188#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -522,6 +603,15 @@
           <caret line="122" column="56" lean-forward="false" selection-start-line="122" selection-start-column="56" selection-end-line="122" selection-end-column="56" />
           <folding>
             <element signature="e#260#284#0" expanded="true" />
+            <element signature="e#2309#2675#0" expanded="false" />
+            <element signature="e#3886#4024#0" expanded="false" />
+            <element signature="e#4078#4179#0" expanded="false" />
+            <element signature="e#4237#4338#0" expanded="false" />
+            <element signature="e#4394#4495#0" expanded="false" />
+            <element signature="e#4552#4653#0" expanded="false" />
+            <element signature="e#4710#5641#0" expanded="false" />
+            <element signature="e#5702#6880#0" expanded="false" />
+            <element signature="e#6938#8188#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -531,14 +621,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="54" column="17" lean-forward="false" selection-start-line="54" selection-start-column="17" selection-end-line="54" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/PycharmProjects/ODmeter/venv/Lib/site-packages/pyueye/ueye.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="463">
-          <caret line="5630" column="45" lean-forward="true" selection-start-line="5630" selection-start-column="45" selection-end-line="5630" selection-end-column="45" />
           <folding />
         </state>
       </provider>
@@ -559,29 +641,46 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ODmeter_gui.py">
+    <entry file="file://$PROJECT_DIR$/pyueye_example_utils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-438">
-          <caret line="131" column="17" lean-forward="false" selection-start-line="131" selection-start-column="12" selection-end-line="131" selection-end-column="17" />
-          <folding>
-            <element signature="e#260#284#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="514">
+          <caret line="121" column="35" lean-forward="true" selection-start-line="121" selection-start-column="35" selection-end-line="121" selection-end-column="35" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ODmeter_camera.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1636">
-          <caret line="202" column="27" lean-forward="true" selection-start-line="202" selection-start-column="11" selection-end-line="202" selection-end-column="27" />
+        <state relative-caret-position="565">
+          <caret line="268" column="48" lean-forward="true" selection-start-line="268" selection-start-column="48" selection-end-line="268" selection-end-column="48" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pyueye_example_utils.py">
+    <entry file="file://$USER_HOME$/PycharmProjects/ODmeter/venv/Lib/site-packages/pyueye/ueye.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="121" column="35" lean-forward="true" selection-start-line="121" selection-start-column="35" selection-end-line="121" selection-end-column="35" />
+        <state relative-caret-position="240">
+          <caret line="7337" column="144" lean-forward="false" selection-start-line="7337" selection-start-column="135" selection-end-line="7337" selection-end-column="144" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ODmeter_gui.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="643">
+          <caret line="299" column="0" lean-forward="true" selection-start-line="299" selection-start-column="0" selection-end-line="299" selection-end-column="0" />
+          <folding>
+            <element signature="e#260#284#0" expanded="true" />
+            <element signature="e#2309#2675#0" expanded="false" />
+            <element signature="e#3886#4024#0" expanded="false" />
+            <element signature="e#4078#4179#0" expanded="false" />
+            <element signature="e#4237#4338#0" expanded="false" />
+            <element signature="e#4394#4495#0" expanded="false" />
+            <element signature="e#4552#4653#0" expanded="false" />
+            <element signature="e#4710#5641#0" expanded="false" />
+            <element signature="e#5702#6880#0" expanded="false" />
+            <element signature="e#6938#8188#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -205,6 +205,33 @@ class Camera:
         else:
             print("Get Pixel Clock Range Error")
 
+    def set_pixel_clock_rate(self, value):
+        command = ueye.IS_PIXELCLOCK_CMD_SET
+        rate = ueye.uint(value)
+        rate_size = ueye.sizeof(rate)
+        ret = ueye.is_PixelClock(self.h_cam, command, rate, rate_size)
+        if ret != ueye.IS_SUCCESS:
+            print("Set Pixel Rate Error")
+
+    def set_exposure_time(self, value):
+        command = ueye.IS_EXPOSURE_CMD_SET_EXPOSURE
+        #change the exposure time unit from us to ms
+        time = ueye.c_double(value/1000.00)
+        time_size = ueye.sizeof(time)
+        ret = ueye.is_Exposure(self.h_cam, command, time, time_size)
+        if ret != ueye.IS_SUCCESS:
+            print("Set Exposure Time Error")
+
+    def get_exposure_time(self):
+        command = ueye.IS_EXPOSURE_CMD_GET_EXPOSURE
+        time = ueye.c_double(0.00)
+        time_size = ueye.sizeof(time)
+        ret = ueye.is_Exposure(self.h_cam, command, time, time_size)
+        if ret == ueye.IS_SUCCESS:
+            return time
+        else:
+            print("Get Exposure Time Error")
+
     def get_sensor_info(self):
         sensor_info = ueye.SENSORINFO()
         ret = ueye.is_GetSensorInfo(self.h_cam, sensor_info)
@@ -220,6 +247,31 @@ class Camera:
             return cam_info
         else:
             print("Get Camera Info Error")
+
+    def set_subsampling(self, mode_H, mode_V):
+        if self.live_on == True:
+            self.stop_video()
+        ret = ueye.is_SetSubSampling(self.h_cam, mode_H)
+        if ret != ueye.IS_SUCCESS:
+            print("Set Horizontal Subsampling Error")
+        ret = ueye.is_SetSubSampling(self.h_cam, mode_V)
+        if ret != ueye.IS_SUCCESS:
+            print("Set Vertical Subsampling Error ")
+
+    def set_binning(self, mode_H, mode_V):
+        if self.live_on == True:
+            self.stop_video()
+        ret = ueye.is_SetBinning(self.h_cam, mode_H)
+        if ret != ueye.IS_SUCCESS:
+            print("Set Horizontal Binning Error")
+        ret = ueye.is_SetBinning(self.h_cam, mode_V)
+        if ret != ueye.IS_SUCCESS:
+            print("Set Vertical Binning Error ")
+
+
+
+
+
 
 
 

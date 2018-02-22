@@ -19,7 +19,7 @@
      <rect>
       <x>9</x>
       <y>9</y>
-      <width>480</width>
+      <width>640</width>
       <height>480</height>
      </rect>
     </property>
@@ -44,33 +44,13 @@
      </rect>
     </property>
    </widget>
-   <widget class="QLabel" name="label">
-    <property name="geometry">
-     <rect>
-      <x>180</x>
-      <y>490</y>
-      <width>111</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>12</pointsize>
-      <weight>75</weight>
-      <bold>true</bold>
-     </font>
-    </property>
-    <property name="text">
-     <string>Camera View</string>
-    </property>
-   </widget>
    <widget class="QGroupBox" name="groupBox">
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>530</y>
-      <width>181</width>
-      <height>201</height>
+      <y>499</y>
+      <width>175</width>
+      <height>383</height>
      </rect>
     </property>
     <property name="font">
@@ -81,9 +61,9 @@
      </font>
     </property>
     <property name="title">
-     <string>Camera Info</string>
+     <string>Camera and Image Info</string>
     </property>
-    <layout class="QGridLayout" name="gridLayout">
+    <layout class="QGridLayout" name="gridLayout_5">
      <item row="0" column="0">
       <widget class="QLabel" name="label_3">
        <property name="font">
@@ -227,7 +207,7 @@
         </font>
        </property>
        <property name="text">
-        <string>CLK (MHz):</string>
+        <string>CLK_default (MHz):</string>
        </property>
       </widget>
      </item>
@@ -246,31 +226,183 @@
        </property>
       </widget>
      </item>
-     <item row="6" column="0">
-      <widget class="QLabel" name="label_2">
-       <property name="font">
-        <font>
-         <pointsize>8</pointsize>
-        </font>
+     <item row="6" column="0" colspan="2">
+      <widget class="QGroupBox" name="groupBox_6">
+       <property name="title">
+        <string>AOI</string>
        </property>
-       <property name="text">
-        <string>maxCLK (MHz):</string>
-       </property>
+       <layout class="QGridLayout" name="gridLayout_4">
+        <item row="0" column="0">
+         <widget class="QLabel" name="label_9">
+          <property name="text">
+           <string>Binning</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QComboBox" name="binning_ComboBox">
+          <item>
+           <property name="text">
+            <string>1 x</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>2 x</string>
+           </property>
+          </item>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="label_11">
+          <property name="text">
+           <string>Subsampling</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QComboBox" name="subsampling_ComboBox">
+          <item>
+           <property name="text">
+            <string>1 x</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>2 x</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>4 x</string>
+           </property>
+          </item>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <widget class="QLabel" name="label_13">
+          <property name="text">
+           <string>AOI</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="1">
+         <widget class="QLabel" name="profile_info_label">
+          <property name="text">
+           <string>2560 x 1920</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </widget>
      </item>
-     <item row="6" column="1">
-      <widget class="QLabel" name="clockMaxInfo">
-       <property name="font">
-        <font>
-         <pointsize>8</pointsize>
-        </font>
+     <item row="7" column="0" colspan="2">
+      <widget class="QGroupBox" name="groupBox_5">
+       <property name="title">
+        <string>Current Timing Info</string>
        </property>
-       <property name="frameShape">
-        <enum>QFrame::NoFrame</enum>
-       </property>
-       <property name="text">
-        <string>TextLabel</string>
-       </property>
+       <layout class="QGridLayout" name="gridLayout">
+        <item row="0" column="0">
+         <widget class="QLabel" name="label_2">
+          <property name="font">
+           <font>
+            <pointsize>8</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>maxCLK (MHz):</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QLabel" name="clockMaxInfo">
+          <property name="font">
+           <font>
+            <pointsize>8</pointsize>
+           </font>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::NoFrame</enum>
+          </property>
+          <property name="text">
+           <string>TextLabel</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="label_14">
+          <property name="text">
+           <string>CLK (MHz)</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QLabel" name="CLK_current_Info">
+          <property name="font">
+           <font>
+            <pointsize>8</pointsize>
+           </font>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::NoFrame</enum>
+          </property>
+          <property name="text">
+           <string>TextLabel</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <widget class="QLabel" name="label_15">
+          <property name="text">
+           <string>Frame Rate (fps)</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="1">
+         <widget class="QLabel" name="frameRateInfo">
+          <property name="font">
+           <font>
+            <pointsize>8</pointsize>
+           </font>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::NoFrame</enum>
+          </property>
+          <property name="text">
+           <string>TextLabel</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="0">
+         <widget class="QLabel" name="label">
+          <property name="text">
+           <string>Exposure (ms)</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="1">
+         <widget class="QLabel" name="exposure_current_Info">
+          <property name="font">
+           <font>
+            <pointsize>8</pointsize>
+           </font>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::NoFrame</enum>
+          </property>
+          <property name="text">
+           <string>TextLabel</string>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="0">
+         <widget class="QPushButton" name="update_frame_rate_button">
+          <property name="text">
+           <string>update</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </widget>
      </item>
     </layout>
@@ -278,22 +410,97 @@
    <widget class="QGroupBox" name="groupBox_2">
     <property name="geometry">
      <rect>
-      <x>500</x>
-      <y>540</y>
-      <width>501</width>
+      <x>230</x>
+      <y>530</y>
+      <width>281</width>
       <height>291</height>
      </rect>
     </property>
     <property name="title">
      <string>Camera Setting</string>
     </property>
-    <widget class="QGroupBox" name="groupBox_3">
+    <widget class="QGroupBox" name="groupBox_4">
      <property name="geometry">
       <rect>
        <x>10</x>
+       <y>130</y>
+       <width>251</width>
+       <height>79</height>
+      </rect>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>4000</width>
+       <height>2500000</height>
+      </size>
+     </property>
+     <property name="title">
+      <string>Timing</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_3">
+      <item row="0" column="0">
+       <widget class="QLabel" name="label_5">
+        <property name="layoutDirection">
+         <enum>Qt::LeftToRight</enum>
+        </property>
+        <property name="text">
+         <string>Pixel CLK (MHz)</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="3">
+       <widget class="QLabel" name="CLK_range_label">
+        <property name="text">
+         <string>(5 to 30) </string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0" colspan="2">
+       <widget class="QLabel" name="label_8">
+        <property name="text">
+         <string>Exposure Time (us) </string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="2">
+       <widget class="QSpinBox" name="exposure_time_spinBox">
+        <property name="minimum">
+         <number>20</number>
+        </property>
+        <property name="maximum">
+         <number>10000</number>
+        </property>
+        <property name="value">
+         <number>5000</number>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="3">
+       <widget class="QLabel" name="exposure_time_range_label">
+        <property name="text">
+         <string>(20 to 10000)</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="2">
+       <widget class="QSpinBox" name="CLK_spinBox">
+        <property name="minimum">
+         <number>5</number>
+        </property>
+        <property name="maximum">
+         <number>30</number>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QGroupBox" name="groupBox_3">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
        <y>30</y>
-       <width>201</width>
-       <height>111</height>
+       <width>223</width>
+       <height>73</height>
       </rect>
      </property>
      <property name="maximumSize">
@@ -313,223 +520,64 @@
         </property>
        </widget>
       </item>
-      <item row="4" column="0">
-       <widget class="QRadioButton" name="trigger_falling_button">
-        <property name="text">
-         <string>Hardware Falling Edge</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="0">
-       <widget class="QRadioButton" name="trigger_software_button">
-        <property name="text">
-         <string>Software</string>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="0">
+      <item row="0" column="1">
        <widget class="QRadioButton" name="trigger_rising_button">
         <property name="text">
          <string>Hardware Rising Edge</string>
         </property>
        </widget>
       </item>
-     </layout>
-    </widget>
-    <widget class="QGroupBox" name="groupBox_4">
-     <property name="geometry">
-      <rect>
-       <x>0</x>
-       <y>140</y>
-       <width>382</width>
-       <height>150</height>
-      </rect>
-     </property>
-     <property name="maximumSize">
-      <size>
-       <width>400</width>
-       <height>150</height>
-      </size>
-     </property>
-     <property name="title">
-      <string>Timing</string>
-     </property>
-     <layout class="QGridLayout" name="gridLayout_3">
-      <item row="1" column="2">
-       <widget class="QSpinBox" name="exposure_time_spinBox">
-        <property name="minimum">
-         <number>20</number>
-        </property>
-        <property name="maximum">
-         <number>10000</number>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="0">
-       <widget class="QLabel" name="label_5">
-        <property name="layoutDirection">
-         <enum>Qt::LeftToRight</enum>
-        </property>
-        <property name="text">
-         <string>Pixel CLK (MHz)</string>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="1">
-       <widget class="QSlider" name="gain_slider">
-        <property name="mouseTracking">
-         <bool>false</bool>
-        </property>
-        <property name="tabletTracking">
-         <bool>false</bool>
-        </property>
-        <property name="autoFillBackground">
-         <bool>false</bool>
-        </property>
-        <property name="inputMethodHints">
-         <set>Qt::ImhNone</set>
-        </property>
-        <property name="minimum">
-         <number>5</number>
-        </property>
-        <property name="maximum">
-         <number>43</number>
-        </property>
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="invertedAppearance">
-         <bool>false</bool>
-        </property>
-        <property name="invertedControls">
-         <bool>false</bool>
-        </property>
-        <property name="tickPosition">
-         <enum>QSlider::TicksBelow</enum>
-        </property>
-        <property name="tickInterval">
-         <number>5</number>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="2">
-       <widget class="QSpinBox" name="gain_spinBox">
-        <property name="minimum">
-         <number>5</number>
-        </property>
-        <property name="maximum">
-         <number>43</number>
-        </property>
-       </widget>
-      </item>
       <item row="1" column="0">
-       <widget class="QLabel" name="label_8">
+       <widget class="QRadioButton" name="trigger_software_button">
         <property name="text">
-         <string>Exposure Time (us) </string>
+         <string>Software</string>
         </property>
        </widget>
       </item>
       <item row="1" column="1">
-       <widget class="QSlider" name="exposure_time_slider">
-        <property name="minimum">
-         <number>20</number>
-        </property>
-        <property name="maximum">
-         <number>10000</number>
-        </property>
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="tickPosition">
-         <enum>QSlider::TicksBelow</enum>
-        </property>
-        <property name="tickInterval">
-         <number>1000</number>
+       <widget class="QRadioButton" name="trigger_falling_button">
+        <property name="text">
+         <string>Hardware Falling Edge</string>
         </property>
        </widget>
       </item>
      </layout>
     </widget>
    </widget>
-   <widget class="QGroupBox" name="groupBox_5">
+   <widget class="QComboBox" name="AOIComboBox">
     <property name="geometry">
      <rect>
-      <x>210</x>
-      <y>530</y>
-      <width>221</width>
-      <height>151</height>
+      <x>520</x>
+      <y>750</y>
+      <width>151</width>
+      <height>20</height>
      </rect>
     </property>
-    <property name="title">
-     <string>Image Setting</string>
-    </property>
-    <widget class="QGroupBox" name="groupBox_6">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>20</y>
-       <width>161</width>
-       <height>104</height>
-      </rect>
+    <item>
+     <property name="text">
+      <string>2560 x 1920</string>
      </property>
-     <property name="title">
-      <string>AOI</string>
+    </item>
+    <item>
+     <property name="text">
+      <string>1280 x 960</string>
      </property>
-     <layout class="QGridLayout" name="gridLayout_4">
-      <item row="0" column="0">
-       <widget class="QLabel" name="label_9">
-        <property name="text">
-         <string>Profile</string>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="1">
-       <widget class="QComboBox" name="AOIComboBox">
-        <item>
-         <property name="text">
-          <string>undefined</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>2560 x 1920</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>640 x 480</string>
-         </property>
-        </item>
-       </widget>
-      </item>
-      <item row="1" column="0">
-       <widget class="QLabel" name="label_11">
-        <property name="text">
-         <string>Width</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="1">
-       <widget class="QLineEdit" name="widthLineEdit"/>
-      </item>
-      <item row="2" column="0">
-       <widget class="QLabel" name="label_13">
-        <property name="text">
-         <string>Height</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="1">
-       <widget class="QLineEdit" name="heightLineEdit"/>
-      </item>
-     </layout>
-     <zorder>label_9</zorder>
-     <zorder>label_11</zorder>
-     <zorder>label_13</zorder>
-     <zorder>widthLineEdit</zorder>
-     <zorder>heightLineEdit</zorder>
-     <zorder>AOIComboBox</zorder>
-    </widget>
+    </item>
+    <item>
+     <property name="text">
+      <string>640 x 480</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>320 x 240</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>undefined</string>
+     </property>
+    </item>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">

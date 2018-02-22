@@ -40,6 +40,7 @@ class ODMeterWindow(QMainWindow):
         self.updateAOISetting()
         self.updateTriggerSetting()
         self.updateCameraInfo()
+        self.updateCameraTiming()
 
         self.imageCounter = 0
 
@@ -62,7 +63,12 @@ class ODMeterWindow(QMainWindow):
     def updateAOISetting(self):
         #set AOI
         self.aoi_rect = Rect()
-        self.AOIComboBox.currentIndexChanged.connect(self.aoi_setting)
+        self.ratio_subsampling = 1
+        self.ratio_binning = 1
+
+        #self.AOIComboBox.currentIndexChanged.connect(self.aoi_setting)
+        self.binning_ComboBox.currentIndexChanged.connect(self.binning_setting)
+        self.subsampling_ComboBox.currentIndexChanged.connect(self.subsampling_setting)
 
     def updateTriggerSetting(self):
         #self.dock_camera_setting.trigger_off_button.clicked.connect(self.trigger_off)
@@ -72,29 +78,38 @@ class ODMeterWindow(QMainWindow):
         self.trigger_falling_button.clicked.connect(self.trigger_falling)
 
     def updateCameraInfo(self):
-       # print(sensor_info.SensorID, sensor_info.nMaxWidth)
+        #print(sensor_info.SensorID, sensor_info.nMaxWidth)
         #print(sensor_info.SensorID, sensor_info.nMaxWidth)
         cam_info = self.cam.get_cam_info()
-        sensor_info = self.cam.get_sensor_info()
+        self.sensor_info = self.cam.get_sensor_info()
 
         #update camera info on GUI
         self.SNInfo.setText(cam_info.SerNo.decode("utf-8"))
 
         #update sensor info on GUI
-        self.typeInfo.setText(sensor_info.strSensorName.decode("utf-8"))
-        self.widthInfo.setText(str(sensor_info.nMaxWidth))
-        self.heightInfo.setText(str(sensor_info.nMaxHeight))
+        self.typeInfo.setText(self.sensor_info.strSensorName.decode("utf-8"))
+        self.widthInfo.setText(str(self.sensor_info.nMaxWidth))
+        self.heightInfo.setText(str(self.sensor_info.nMaxHeight))
 
-        if ord(sensor_info.nColorMode) == ueye.IS_COLORMODE_MONOCHROME:
+        if ord(self.sensor_info.nColorMode) == ueye.IS_COLORMODE_MONOCHROME:
             color_mode = "Monochrome"
         else:
             color_mode = "Color"
         self.colorInfo.setText(color_mode)
+
         #update pixel rate
         pixel_rate = self.cam.get_pixel_clock_rate()
         self.clockInfo.setText(str(pixel_rate))
         pixel_rate_min, pixel_rate_max = self.cam.get_pixel_clock_range()
         self.clockMaxInfo.setText(str(pixel_rate_max))
+
+        self.frame_rate_update()
+        self.update_frame_rate_button.clicked.connect(self.frame_rate_update)
+
+
+    def updateCameraTiming(self):
+        self.CLK_spinBox.valueChanged.connect(self.set_pixel_rate)
+        self.exposure_time_spinBox.valueChanged.connect(self.set_exposure_time)
 
 
     @pyqtSlot()
@@ -122,17 +137,111 @@ class ODMeterWindow(QMainWindow):
         self.reset_image_counter()
 
     @pyqtSlot()
-    def aoi_setting(self):
+    def binning_setting(self):
+        if self.binning_ComboBox.currentText() == "1 x":
+            self.ratio_binning = 1
+            mode_H = ueye.IS_BINNING_DISABLE
+            mode_V = ueye.IS_BINNING_DISABLE
+        elif self.binning_ComboBox.currentText() == "2 x":
+            self.ratio_binning = 2
+            mode_H = ueye.IS_BINNING_2X_HORIZONTAL
+            mode_V = ueye.IS_BINNING_2X_VERTICAL
+            print(mode_H, mode_V)
+        elif self.binning_ComboBox.currentText() == "4 x":
+            self.ratio_binning = 4
+            mode_H = ueye.IS_BINNING_4X_HORIZONTAL
+            mode_V = ueye.IS_BINNING_4X_VERTICAL
+        elif self.binning_ComboBox.currentText() == "8 x":
+            self.ratio_binning = 8
+            mode_H = ueye.IS_BINNING_8X_HORIZONTAL
+            mode_V = ueye.IS_BINNING_8X_VERTICAL
+
+        self.cam.set_binning(mode_H, mode_V)
+        print(self.ratio_binning)
+        print("start AOI setting")
+        self.aoi_setting()
+
+    @pyqtSlot()
+    def subsampling_setting(self):
+        if self.subsampling_ComboBox.currentText() == "1 x":
+            self.ratio_subsampling = 1
+            mode_H = ueye.IS_SUBSAMPLING_DISABLE
+            mode_V = ueye.IS_SUBSAMPLING_DISABLE
+        elif self.subsampling_ComboBox.currentText() == "2 x":
+            self.ratio_subsampling = 2
+            mode_H = ueye.IS_SUBSAMPLING_2X_HORIZONTAL
+            mode_V = ueye.IS_SUBSAMPLING_2X_VERTICAL
+            print(mode_H, mode_V)
+        elif self.subsampling_ComboBox.currentText() == "4 x":
+            self.ratio_subsampling = 4
+            mode_H = ueye.IS_SUBSAMPLING_4X_HORIZONTAL
+            mode_V = ueye.IS_SUBSAMPLING_4X_VERTICAL
+        elif self.subsampling_ComboBox.currentText() == "6 x":
+            self.ratio_subsampling = 6
+            mode_H = ueye.IS_SUBSAMPLING_8X_HORIZONTAL
+            mode_V = ueye.IS_SUBSAMPLING_8X_VERTICAL
+        elif self.subsampling_ComboBox.currentText() == "8 x":
+            self.ratio_subsampling = 8
+            mode_H = ueye.IS_SUBSAMPLING_8X_HORIZONTAL
+            mode_V = ueye.IS_SUBSAMPLING_8X_VERTICAL
+
+        self.cam.set_subsampling(mode_H, mode_V)
+        print(self.ratio_subsampling)
+        self.aoi_setting()
+
+    @pyqtSlot()
+    def aoi_setting_test(self):
         #print(self.AOIComboBox.currentText())
+        #set the AOI based on the input from GUI
 
         if self.AOIComboBox.currentText() == "2560 x 1920":
-            print("choose 2560")
             self.aoi_rect.x, self.aoi_rect.y, self.aoi_rect.width, self.aoi_rect.height = 0, 0, 2560, 1920
+            self.CLK_range_label.setText('(5 to 30)')
+            self.CLK_spinBox.setMaximum(30)
+
+        elif self.AOIComboBox.currentText() == "1280 x 960":
+            self.aoi_rect.x, self.aoi_rect.y, self.aoi_rect.width, self.aoi_rect.height = 0, 0, 1280, 960
+            self.CLK_range_label.setText('(5 to 50)')
+            self.CLK_spinBox.setMaximum(50)
+
         elif self.AOIComboBox.currentText() == "640 x 480":
-            print("choose 640")
             self.aoi_rect.x, self.aoi_rect.y, self.aoi_rect.width, self.aoi_rect.height = 0, 0, 640, 480
+            self.CLK_range_label.setText('(5 to 60)')
+            self.CLK_spinBox.setMaximum(60)
+
+        elif self.AOIComboBox.currentText() == "320 x 240":
+            self.aoi_rect.x, self.aoi_rect.y, self.aoi_rect.width, self.aoi_rect.height = 0, 0, 320, 240
+            self.CLK_range_label.setText('(5 to 90)')
+            self.CLK_spinBox.setMaximum(90)
 
         self.cam.set_aoi(self.aoi_rect.x, self.aoi_rect.y, self.aoi_rect.width, self.aoi_rect.height)
+
+    @pyqtSlot()
+    def frame_rate_update(self):
+        #update the current frame rate by clicking the "update" button
+        framerate = self.cam.get_frame_rate()
+        self.frameRateInfo.setText(str("%.2f" % framerate))
+
+        pixel_rate = self.cam.get_pixel_clock_rate()
+        self.CLK_current_Info.setText(str(pixel_rate))
+
+        pixel_rate_min, pixel_rate_max = self.cam.get_pixel_clock_range()
+        print("max pixel rate" + str(pixel_rate_max))
+        self.clockMaxInfo.setText(str(pixel_rate_max))
+
+        exposure_time = self.cam.get_exposure_time()
+        self.exposure_current_Info.setText(str("%.3f" % exposure_time))
+
+    @pyqtSlot()
+    def set_pixel_rate(self):
+        rate = self.CLK_spinBox.value()
+        print(rate)
+        self.cam.set_pixel_clock_rate(rate)
+
+    @pyqtSlot()
+    def set_exposure_time(self):
+        time = self.exposure_time_spinBox.value()
+        self.cam.set_exposure_time(time)
 
         #Update the Camera View background
     def draw_background(self, painter, rect):
@@ -140,7 +249,6 @@ class ODMeterWindow(QMainWindow):
             #keep the image in the original size
             image = self.image.scaled(self.image.width(), self.image.height(), QtCore.Qt.KeepAspectRatio)
             painter.drawImage(rect.x(), rect.y(), image)
-
 
 
     def update_image(self, image):
@@ -156,8 +264,6 @@ class ODMeterWindow(QMainWindow):
         self.update_signal.emit(self.image)
         # unlock the buffer so we can use it again
         image_data.unlock()
-
-        framerate = self.cam.get_frame_rate()
         
     def shutdown(self):
         self.close()
@@ -169,7 +275,32 @@ class ODMeterWindow(QMainWindow):
     def reset_image_counter(self):
         self.imageCounter = 0
 
+    def aoi_setting(self):
+        #update AOI setting after binning parameter changed
+        #update the current infomation after camera init
+        self.aoi_rect.x, self.aoi_rect.y = 0, 0
+        self.aoi_rect.width = int(round((self.sensor_info.nMaxWidth / self.ratio_binning) / self.ratio_subsampling))
+        self.aoi_rect.height = int(round((self.sensor_info.nMaxHeight / self.ratio_binning) / self.ratio_subsampling))
 
+        self.profile_info_label.setText(str(self.aoi_rect.width) + " x " + str(self.aoi_rect.height))
+        self.cam.set_aoi(self.aoi_rect.x, self.aoi_rect.y, self.aoi_rect.width, self.aoi_rect.height)
+
+        #update the CLK tuning range
+        if self.aoi_rect.height == 1920:
+            self.CLK_range_label.setText('(5 to 30)')
+            self.CLK_spinBox.setMaximum(30)
+
+        elif self.aoi_rect.height == 960:
+            self.CLK_range_label.setText('(5 to 43)')
+            self.CLK_spinBox.setMaximum(43)
+
+        elif self.aoi_rect.height == 480:
+            self.CLK_range_label.setText('(5 to 43)')
+            self.CLK_spinBox.setMaximum(43)
+
+        elif self.aoi_rect.height == 240:
+            self.CLK_range_label.setText('(5 to 43)')
+            self.CLK_spinBox.setMaximum(43)
 
 class ODMeterApp:
     def __init__(self, args=[]):
