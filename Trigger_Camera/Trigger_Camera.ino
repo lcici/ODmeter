@@ -37,8 +37,10 @@ void loop() {
 
   digitalWrite(LED_BUILTIN, LOW);
   digitalWrite(triggerPin, LOW);
-  delay(8);  
+  delay(8); 
 
-  delay(2000); 
+  delay(1000);
+
+
 
 }

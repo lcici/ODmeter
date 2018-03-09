@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1307</width>
-    <height>949</height>
+    <width>1181</width>
+    <height>864</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,8 +19,8 @@
      <rect>
       <x>9</x>
       <y>9</y>
-      <width>640</width>
-      <height>480</height>
+      <width>512</width>
+      <height>384</height>
      </rect>
     </property>
    </widget>
@@ -28,7 +28,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>500</y>
+      <y>400</y>
       <width>175</width>
       <height>409</height>
      </rect>
@@ -411,7 +411,7 @@
     <property name="geometry">
      <rect>
       <x>190</x>
-      <y>500</y>
+      <y>400</y>
       <width>268</width>
       <height>191</height>
      </rect>
@@ -540,10 +540,10 @@
    <widget class="QLabel" name="image_first_label">
     <property name="geometry">
      <rect>
-      <x>680</x>
-      <y>20</y>
-      <width>320</width>
-      <height>240</height>
+      <x>530</x>
+      <y>211</y>
+      <width>240</width>
+      <height>180</height>
      </rect>
     </property>
     <property name="frameShape">
@@ -556,10 +556,10 @@
    <widget class="QLabel" name="image_second_label">
     <property name="geometry">
      <rect>
-      <x>680</x>
-      <y>280</y>
-      <width>320</width>
-      <height>240</height>
+      <x>780</x>
+      <y>211</y>
+      <width>240</width>
+      <height>180</height>
      </rect>
     </property>
     <property name="frameShape">
@@ -572,10 +572,10 @@
    <widget class="QLabel" name="image_third_label">
     <property name="geometry">
      <rect>
-      <x>680</x>
-      <y>550</y>
-      <width>320</width>
-      <height>240</height>
+      <x>1030</x>
+      <y>211</y>
+      <width>240</width>
+      <height>180</height>
      </rect>
     </property>
     <property name="frameShape">
@@ -585,13 +585,33 @@
      <string>TextLabel</string>
     </property>
    </widget>
+   <widget class="PlotWidget" name="x_section_plot">
+    <property name="geometry">
+     <rect>
+      <x>530</x>
+      <y>9</y>
+      <width>360</width>
+      <height>190</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="PlotWidget" name="y_section_plot">
+    <property name="geometry">
+     <rect>
+      <x>910</x>
+      <y>9</y>
+      <width>360</width>
+      <height>190</height>
+     </rect>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1307</width>
+     <width>1181</width>
      <height>21</height>
     </rect>
    </property>
@@ -635,6 +655,13 @@
    </property>
   </action>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>PlotWidget</class>
+   <extends>QGraphicsView</extends>
+   <header>pyqtgraph</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

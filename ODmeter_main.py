@@ -13,7 +13,7 @@ from ODmeter_gui import ODMeterApp, ODMeterWindow
 from PyQt5 import QtGui
 
 from pyueye import ueye
-from ODmeter_process import process_image
+from ODmeter_process import process_image_view
 
 import cv2
 import numpy as np
@@ -28,15 +28,12 @@ def main():
     # init camera in the GUI window
     view = ODMeterWindow()
     view.show()
-    view.user_callback = process_image
+    #view.user_callback = process_image_view
 
     #view.updateAOISetting()
     view.cam.set_aoi(view.aoi_rect.x, view.aoi_rect.y, view.aoi_rect.width, view.aoi_rect.height)
     #view.cam.alloc()
     view.cam.capture_video()
-
-    framerate = ueye.c_double()
-    ueye.is_GetFramesPerSecond(view.cam.h_cam, framerate)
 
     # a thread that waits for new images and processes all connected views
     thread = FrameThread(view.cam, view)

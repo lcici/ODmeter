@@ -20,6 +20,11 @@ from PyQt5.uic import loadUi
 
 from ODmeter_camera import Camera
 from pyueye_example_utils import Rect
+from ODmeter_process import process_image_view, process_image_sum
+
+import numpy as np
+import pyqtgraph
+
 
 #import ctypes
 #from ctypes.wintypes import HWND, MSG
@@ -38,6 +43,8 @@ class ODMeterWindow(QMainWindow):
 
         self.initUI()
         self.initCamera()
+        self.init_section_data()
+
         self.updateAOISetting()
         self.updateTriggerSetting()
         self.updateCameraInfo()
@@ -50,7 +57,15 @@ class ODMeterWindow(QMainWindow):
         self.camera_graphics_view.setScene(self.scene)
         self.scene.drawBackground = self.draw_background
         self.update_signal.connect(self.update_image)
+
         self.processors = []
+        self.init_section_data()
+
+    def init_section_data(self):
+        pyqtgraph.setConfigOption('background', 'w')
+        self.x_section_plot.plotItem.showGrid(True, True, 0.7)
+        self.y_section_plot.plotItem.showGrid(True, True, 0.7)
+
 
     def initCamera(self):
         self.image = None
@@ -92,6 +107,9 @@ class ODMeterWindow(QMainWindow):
         self.typeInfo.setText(self.sensor_info.strSensorName.decode("utf-8"))
         self.widthInfo.setText(str(self.sensor_info.nMaxWidth))
         self.heightInfo.setText(str(self.sensor_info.nMaxHeight))
+
+        self.aoi_rect.width = self.sensor_info.nMaxWidth
+        self.aoi_rect.height = self.sensor_info.nMaxHeight
 
         if ord(self.sensor_info.nColorMode) == ueye.IS_COLORMODE_MONOCHROME:
             color_mode = "Monochrome"
@@ -202,7 +220,6 @@ class ODMeterWindow(QMainWindow):
         self.CLK_current_Info.setText(str(pixel_rate))
 
         pixel_rate_min, pixel_rate_max = self.cam.get_pixel_clock_range()
-        print("max pixel rate" + str(pixel_rate_max))
         self.clockMaxInfo.setText(str(pixel_rate_max))
 
         exposure_time = self.cam.get_exposure_time()
@@ -227,13 +244,22 @@ class ODMeterWindow(QMainWindow):
         #Update the Camera View background
     def draw_background(self, painter, rect):
         if self.image:
-            #keep the image in the original size
-            image = self.image.scaled(self.image.width(), self.image.height(), QtCore.Qt.KeepAspectRatio)
+            #keep the image as the same window size
+            image = self.image.scaled(self.camera_graphics_view.width(), self.camera_graphics_view.height())
             painter.drawImage(rect.x(), rect.y(), image)
-
 
     def update_image(self, image):
         self.scene.update()
+
+    def update_data(self, image):
+        if image:
+            plot_data_h, plot_data_v = process_image_sum(image)
+
+            h_axis = np.arange(self.aoi_rect.width)
+            v_axis = np.arange(self.aoi_rect.height)
+
+            self.x_section_plot.plot(h_axis, plot_data_h, clear = True)
+            self.y_section_plot.plot(v_axis, plot_data_v, clear = True)
 
     def user_callback(self, image_data):
         return image_data.as_cv_image()
@@ -241,8 +267,12 @@ class ODMeterWindow(QMainWindow):
     def handle(self, image_data):
         if self.triggerMode == 2 or self.triggerMode == 3:
             self.imageCounter = self.imageCounter + 1
-        self.image = self.user_callback(self, image_data)
+        #self.image = self.user_callback(self, image_data)
+        self.image = process_image_view(self, image_data)
         self.update_signal.emit(self.image)
+
+
+        self.update_data(image_data)
 
         if self.imageCounter == 1:
             self.image_first = self.image
@@ -298,17 +328,19 @@ class ODMeterWindow(QMainWindow):
             self.CLK_spinBox.setMaximum(43)
 
     def display_buffer_image(self, image_data, window):
+        pixmap = QPixmap.fromImage(image_data)
+        #resize the image to fit with the window size
+        pixmap_resize = pixmap.scaled(self.image_first_label.width(), self.image_first_label.height())
         if window == 1:
-            self.image_first_label.setPixmap(QPixmap.fromImage(image_data))
-            self.image_first_label.setAlignment(QtCore.Qt.AlignHCenter | QtCore.Qt.AlignVCenter)
+            self.image_first_label.setPixmap(pixmap_resize)
 
         elif window == 2:
-            self.image_second_label.setPixmap(QPixmap.fromImage(image_data))
-            self.image_second_label.setAlignment(QtCore.Qt.AlignHCenter | QtCore.Qt.AlignVCenter)
+            self.image_second_label.setPixmap(pixmap_resize)
 
         elif window == 3:
-            self.image_third_label.setPixmap(QPixmap.fromImage(image_data))
-            self.image_third_label.setAlignment(QtCore.Qt.AlignHCenter | QtCore.Qt.AlignVCenter)
+            self.image_third_label.setPixmap(pixmap_resize)
+
+
 
 
 class ODMeterApp:
@@ -320,6 +352,7 @@ class ODMeterApp:
 
     def exit_connect(self, method):
         self.qt_app.aboutToQuit.connect(method)
+
 
 
 
