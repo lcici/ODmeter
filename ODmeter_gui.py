@@ -58,6 +58,10 @@ class ODMeterWindow(QMainWindow):
         self.scene.drawBackground = self.draw_background
         self.update_signal.connect(self.update_image)
 
+        self.restartButton.clicked.connect(self.restart_capture)
+        self.stopButton.clicked.connect(self.stop_capture)
+        self.saveButton.clicked.connect(self.save_image_file)
+
         self.processors = []
         self.init_section_data()
 
@@ -240,6 +244,18 @@ class ODMeterWindow(QMainWindow):
     def update_gain(self):
         factor = self.gain_spinBox.value()
         self.cam.set_gain(factor)
+
+    @pyqtSlot()
+    def restart_capture(self):
+        pass
+
+    @pyqtSlot()
+    def stop_capture(self):
+        pass
+
+    @pyqtSlot()
+    def save_image_file(self):
+        pass
 
         #Update the Camera View background
     def draw_background(self, painter, rect):
