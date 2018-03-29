@@ -99,7 +99,6 @@ class Camera:
     def set_aoi(self, x, y, width, height):
         if self.live_on is True:
             self.stop_video()
-
         rect_aoi = ueye.IS_RECT()
         rect_aoi.s32X = ueye.int(x)
         rect_aoi.s32Y = ueye.int(y)

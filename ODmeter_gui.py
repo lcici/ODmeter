@@ -10,7 +10,7 @@ from PyQt5 import QtGui
 #from PyQt5 import QtWidgets
 from PyQt5.QtCore import Qt, pyqtSlot
 
-from PyQt5.QtWidgets import QGraphicsScene, QApplication, QMainWindow
+from PyQt5.QtWidgets import QGraphicsScene, QApplication, QMainWindow, QFileDialog
 from PyQt5.QtGui import QPixmap, QImage
 #from PyQt5.QtWidgets import QGraphicsView
 #from PyQt5.QtWidgets import QHBoxLayout, QVBoxLayout, QSlider, QWidget,
@@ -24,6 +24,7 @@ from ODmeter_process import process_image_view, process_image_sum
 
 import numpy as np
 import pyqtgraph
+import cv2
 
 
 #import ctypes
@@ -247,15 +248,19 @@ class ODMeterWindow(QMainWindow):
 
     @pyqtSlot()
     def restart_capture(self):
-        pass
+        self.cam.capture_video(None)
 
     @pyqtSlot()
     def stop_capture(self):
-        pass
+        self.cam.stop_video()
 
     @pyqtSlot()
     def save_image_file(self):
-        pass
+        fname, filter = QFileDialog.getSaveFileName(self, 'Save File', 'C:\\', "Image Files(*.jpg)")
+        if fname:
+            self.image.save(fname,"PNG", -1)
+        else:
+            print("Save file error")
 
         #Update the Camera View background
     def draw_background(self, painter, rect):
